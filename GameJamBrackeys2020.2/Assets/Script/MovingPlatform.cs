@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour,ITriggerInTime
 {
-
+    [SerializeField] bool startingMode = false;
     [SerializeField] float speed = 2.0f;
+    float rewindScale = 0f;
     [SerializeField] private Transform[] wayPoints = null;
     [SerializeField] float[] timeAtWayPoints = null;
 
-    bool timeForward = false; 
+
+    bool goingForward = false; 
     int currentDest = 0;
     Vector2 direction;
     float waitedTime = 0;
@@ -31,39 +33,48 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
 
     public void TriggerInTime(bool isRewinding)
     {
-        if (timeForward == isRewinding)
+        if (goingForward == isRewinding)
         {
-            timeForward = !isRewinding;
+            goingForward = !goingForward;
 
             //if in-Between
             if (waitedTime == 0)
                 GoToNextDestination();
 
-            if (!timeForward)
+            if (!goingForward)
                 timeToWait = waitedTime * 2;
         }
     }
 
     void Start ()
     {
+        if (startingMode)
+            goingForward = true;
+
+        rewindScale = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>().RewindScale;
+
         GetDirection();
     }
 
 
     void Update()
     {
+        Vector2 translation = direction * speed * Time.deltaTime;
+        if (!goingForward)
+            translation *= rewindScale;
+
         if (!ReachDestination())
-            transform.Translate(direction * speed * Time.deltaTime);
+                transform.Translate(translation);
         else
         {
             if (waitedTime >= timeToWait)
             {
                 //check limits
-                if ((!timeForward && currentDest > 0) || (timeForward && currentDest < wayPoints.Length - 1))
+                if ((!goingForward && currentDest > 0) || (goingForward && currentDest < wayPoints.Length - 1))
                     GoToNextDestination();
             }
             else
-                waitedTime += Time.deltaTime;
+                waitedTime += (goingForward)? Time.deltaTime : Time.deltaTime * rewindScale;
         }
 
     }
@@ -82,7 +93,7 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     private void GoToNextDestination()
     {
         waitedTime = 0;
-        currentDest = timeForward ? currentDest += 1 : currentDest -= 1;
+        currentDest = goingForward ? currentDest += 1 : currentDest -= 1;
         timeToWait = timeAtWayPoints[currentDest];
         GetDirection();
     }

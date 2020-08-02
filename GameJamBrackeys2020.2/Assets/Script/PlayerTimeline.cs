@@ -18,16 +18,18 @@ public class PlayerTimeline : MonoBehaviour
 
     [SerializeField] Slider playerSlider = null;
     [SerializeField] Transform player = null;
+    [SerializeField] BottomAction currentState = BottomAction.E_IDLE; /////////////////////////////////
+    [SerializeField] float timeOnTheTimeline = 0f; /////////////////////////////////
     [SerializeField] float playerSpeed = 0f;
-    [SerializeField] float timeScale = 0f;
-    float deltaTime = 0f;
+    [SerializeField] float rewindScale = 0f;
+    [SerializeField] float coolDownForRewind = 0f;
+    float remainingCoolDownForRewind = 0f;
 
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
 
     int numberOfTheState = 0;
     [SerializeField] BottomAction[] states = null;
-    BottomAction currentState = BottomAction.E_IDLE;
     public BottomAction CurrentState
     {
         set
@@ -66,13 +68,16 @@ public class PlayerTimeline : MonoBehaviour
 
     void Update()
     {
-        deltaTime = Time.deltaTime * timeScale;
+        remainingCoolDownForRewind -= Time.deltaTime;
         UpdateSlider();
         
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && remainingCoolDownForRewind < 0)
             StartRewind();
-        else
+        else if (isRewindingPlayer)
+        {
+            remainingCoolDownForRewind = coolDownForRewind;
             StopRewind();
+        }
 
         if (currentState == BottomAction.E_FINNISH || isRewindingPlayer)
             return;
@@ -83,7 +88,7 @@ public class PlayerTimeline : MonoBehaviour
             SetStateAndTime();
         }
         else
-            waitedTime += deltaTime;
+            waitedTime += Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -94,10 +99,12 @@ public class PlayerTimeline : MonoBehaviour
             SetStateAndTimeDuringRewind();
 
             if (positions.Count > 0)
-            {
-                player.position = positions[0];
-                positions.RemoveAt(0);
-            }
+                for(int i = 0; i < rewindScale; ++i)
+                {
+                    player.position = positions[0];
+                    positions.RemoveAt(0);
+
+                }
         }
         else
         {
@@ -106,7 +113,7 @@ public class PlayerTimeline : MonoBehaviour
                 positions.Insert(0, player.position);
             //E_Right
             if (currentState == BottomAction.E_RIGHT)
-                player.Translate(player.right * playerSpeed * deltaTime);
+                player.Translate(player.right * playerSpeed * Time.deltaTime);
         }
 
     }
@@ -117,6 +124,8 @@ public class PlayerTimeline : MonoBehaviour
 
         for (int i = 0; i < numberOfTheState; ++i)
             temp += timeAtStates[i];
+
+        timeOnTheTimeline = temp;
 
         playerSlider.value = temp / maximumLength;
     }
@@ -137,6 +146,8 @@ public class PlayerTimeline : MonoBehaviour
 
     void SetStateAndTimeDuringRewind()
     {
+        float deltaTime = Time.deltaTime* rewindScale;
+
         if (deltaTime <= waitedTime)
         {
             currentState = states[numberOfTheState];

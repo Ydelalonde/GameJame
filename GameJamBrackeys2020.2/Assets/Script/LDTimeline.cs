@@ -8,31 +8,34 @@ public class LDTimeline : MonoBehaviour
     [SerializeField] Slider LDSlider = null;
     [SerializeField] float lengthOfTimeline = 0;
     float timeOnTheTimeline = 0f;
+    [SerializeField] float timeScale = 0f;
+    float deltaTime = 0f;
     bool isRewinding = false;
 
     [SerializeField] Transform[] objectToTrigger = null;
     List<ITriggerInTime> triggers = new List<ITriggerInTime>();
     [SerializeField] float[] timeForTrigger = null;
-
-    [SerializeField] Transform[] platformToTrigger = null;
-    List<ITriggerInTime> platforms = new List<ITriggerInTime>();
-    [SerializeField] float[] timeForPlatforms = null;
+    List<float> timeForUnTrigger = new List<float>();
 
 
     private void Start()
     {
-        for(int i = 0; i < objectToTrigger.Length; ++i)
-            if(objectToTrigger[i].GetComponent<ITriggerInTime>() != null)
-                triggers.Add(objectToTrigger[i].GetComponent<ITriggerInTime>());
+        //fill triggers
+        for (int i = 0; i < objectToTrigger.Length; ++i)
+        {
+            triggers.Add(objectToTrigger[i].GetComponent<ITriggerInTime>());
+            timeForUnTrigger.Add(timeForTrigger[i] + triggers[i].AdditionnalTime());
+            Debug.Log(timeForTrigger[i] + triggers[i].AdditionnalTime());
+        }
+            
 
-        for (int i = 0; i < platformToTrigger.Length; ++i)
-            if (platformToTrigger[i].GetComponent<ITriggerInTime>() != null)
-                platforms.Add(platformToTrigger[i].GetComponent<ITriggerInTime>());
     }
 
     // Update is called once per frame
     void Update()
     {
+        deltaTime = Time.deltaTime * timeScale;
+
         if (Input.GetKey(KeyCode.E))
             isRewinding = true;
         else
@@ -41,13 +44,12 @@ public class LDTimeline : MonoBehaviour
         UpdateTimeline();
         UpdateSlider();
         UpdateTriggers();
-        UpdatePlatforms();
     }
 
 
     void UpdateTimeline()
     {
-        timeOnTheTimeline += (isRewinding)? -Time.deltaTime : Time.deltaTime;
+        timeOnTheTimeline += (isRewinding)? -deltaTime : deltaTime;
         timeOnTheTimeline = Mathf.Clamp(timeOnTheTimeline, 0, lengthOfTimeline);
     }
 
@@ -60,15 +62,8 @@ public class LDTimeline : MonoBehaviour
     void UpdateTriggers()
     {
         for (int i = 0; i < triggers.Count; ++i)
-            if (timeForTrigger[i] - Time.deltaTime < timeOnTheTimeline &&  timeOnTheTimeline < timeForTrigger[i] + Time.deltaTime)
-                triggers[i].TriggerInTime(isRewinding);
-    }
-
-    void UpdatePlatforms()
-    {
-        for (int i = 0; i < platforms.Count; ++i)
-            if (timeOnTheTimeline > timeForPlatforms[i])
-                platforms[i].TriggerInTime(isRewinding);
+            if ( (!isRewinding && timeOnTheTimeline > timeForTrigger[i]) || (isRewinding && timeOnTheTimeline < timeForUnTrigger[i]) )
+                triggers[i].TriggerInTime(isRewinding);               
     }
 
 }

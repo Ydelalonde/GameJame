@@ -15,11 +15,33 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     float waitedTime = 0;
     float timeToWait = 0;
 
+    public float AdditionnalTime()
+    {
+        float time = 0f;
+        foreach (float F in timeAtWayPoints)
+            time += F;
 
+        float distance = 0f;
+        for (int i = 0; i < wayPoints.Length - 1; ++i)
+            distance += (wayPoints[i + 1].position - wayPoints[i].position).magnitude;
+
+        //waited time + translation time
+        return time + distance / speed; 
+    }
 
     public void TriggerInTime(bool isRewinding)
     {
-        timeForward = !isRewinding;
+        if (timeForward == isRewinding)
+        {
+            timeForward = !isRewinding;
+
+            //if in-Between
+            if (waitedTime == 0)
+                GoToNextDestination();
+
+            if (!timeForward)
+                timeToWait = waitedTime * 2;
+        }
     }
 
     void Start ()
@@ -30,25 +52,18 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
 
     void Update()
     {
-        Debug.Log(timeForward);
-
         if (!ReachDestination())
             transform.Translate(direction * speed * Time.deltaTime);
         else
         {
-            //check limits
-            if ( (!timeForward && currentDest == 0) || (timeForward && currentDest == wayPoints.Length - 1) )
+            if (waitedTime >= timeToWait)
             {
-                Debug.Log("STUCK");
+                //check limits
+                if ((!timeForward && currentDest > 0) || (timeForward && currentDest < wayPoints.Length - 1))
+                    GoToNextDestination();
             }
             else
-            { 
-                if (waitedTime >= timeToWait)
-                    GoToNextDestination();
-                else
-                    waitedTime += Time.deltaTime;
-            }
-
+                waitedTime += Time.deltaTime;
         }
 
     }

@@ -8,6 +8,10 @@ public class RevertGravity : MonoBehaviour, ITriggerInTime
     bool timeForward = true;
     [SerializeField] Rigidbody2D whatToRevert = null;
 
+    public float AdditionnalTime()
+    {
+        return 0;
+    }
 
     public void TriggerInTime(bool isRewinding)
     {

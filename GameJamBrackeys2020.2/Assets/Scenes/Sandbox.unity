@@ -192,6 +192,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8644397333526505186, guid: 7dd034a9d4f13d4438c04df57c8999e2,
+        type: 3}
+      propertyPath: goingForward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644397333526505186, guid: 7dd034a9d4f13d4438c04df57c8999e2,
+        type: 3}
+      propertyPath: startingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd034a9d4f13d4438c04df57c8999e2, type: 3}
 --- !u!4 &150979996 stripped
@@ -1585,6 +1595,16 @@ PrefabInstance:
       propertyPath: timeScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: coolDownForRewind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: rewindScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8406735317949200265, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: m_Name
@@ -1698,6 +1718,16 @@ PrefabInstance:
     - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: timeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: coolDownForRewind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: rewindScale
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

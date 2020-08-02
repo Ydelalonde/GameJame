@@ -7,9 +7,14 @@ public class LDTimeline : MonoBehaviour
 {
     [SerializeField] Slider LDSlider = null;
     [SerializeField] float lengthOfTimeline = 0;
-    float timeOnTheTimeline = 0f;
-    [SerializeField] float timeScale = 0f;
-    float deltaTime = 0f;
+    [SerializeField] float timeOnTheTimeline = 0f; /////////////////////////////////
+    [SerializeField] float rewindScale = 0f;
+    public float RewindScale
+    {
+        get => rewindScale;
+    }
+    [SerializeField] float coolDownForRewind = 0f;
+    float remainingCoolDownForRewind = 0f;
     bool isRewinding = false;
 
     [SerializeField] Transform[] objectToTrigger = null;
@@ -25,21 +30,21 @@ public class LDTimeline : MonoBehaviour
         {
             triggers.Add(objectToTrigger[i].GetComponent<ITriggerInTime>());
             timeForUnTrigger.Add(timeForTrigger[i] + triggers[i].AdditionnalTime());
-            Debug.Log(timeForTrigger[i] + triggers[i].AdditionnalTime());
         }
-            
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        deltaTime = Time.deltaTime * timeScale;
+        remainingCoolDownForRewind -= Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && remainingCoolDownForRewind < 0)
             isRewinding = true;
-        else
+        else if (isRewinding)
+        { 
+            remainingCoolDownForRewind = coolDownForRewind;
             isRewinding = false;
+        }
 
         UpdateTimeline();
         UpdateSlider();
@@ -49,7 +54,7 @@ public class LDTimeline : MonoBehaviour
 
     void UpdateTimeline()
     {
-        timeOnTheTimeline += (isRewinding)? -deltaTime : deltaTime;
+        timeOnTheTimeline += (isRewinding) ? -Time.deltaTime * rewindScale : Time.deltaTime;
         timeOnTheTimeline = Mathf.Clamp(timeOnTheTimeline, 0, lengthOfTimeline);
     }
 

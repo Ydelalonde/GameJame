@@ -19,6 +19,9 @@ public class PlayerTimeline : MonoBehaviour
     [SerializeField] Slider playerSlider = null;
     [SerializeField] Transform player = null;
     [SerializeField] float playerSpeed = 0f;
+    [SerializeField] float timeScale = 0f;
+    float deltaTime = 0f;
+
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
 
@@ -27,7 +30,17 @@ public class PlayerTimeline : MonoBehaviour
     BottomAction currentState = BottomAction.E_IDLE;
     public BottomAction CurrentState
     {
-        set => currentState = value;
+        set
+        {
+            if (currentState == BottomAction.E_FINNISH)
+                playerRb.isKinematic = false;
+            currentState = value;
+            if (currentState == BottomAction.E_FINNISH)
+            {
+                Time.timeScale = 0;
+                playerRb.isKinematic = true;
+            }
+        }
     }
     [SerializeField] float[] timeAtStates = null;
     float maximumLength = 0f;
@@ -53,7 +66,7 @@ public class PlayerTimeline : MonoBehaviour
 
     void Update()
     {
-
+        deltaTime = Time.deltaTime * timeScale;
         UpdateSlider();
         
         if (Input.GetKey(KeyCode.A))
@@ -70,7 +83,7 @@ public class PlayerTimeline : MonoBehaviour
             SetStateAndTime();
         }
         else
-            waitedTime += Time.deltaTime;
+            waitedTime += deltaTime;
     }
 
     void FixedUpdate()
@@ -93,7 +106,7 @@ public class PlayerTimeline : MonoBehaviour
                 positions.Insert(0, player.position);
             //E_Right
             if (currentState == BottomAction.E_RIGHT)
-                player.Translate(player.right * playerSpeed * Time.deltaTime);
+                player.Translate(player.right * playerSpeed * deltaTime);
         }
 
     }
@@ -124,12 +137,11 @@ public class PlayerTimeline : MonoBehaviour
 
     void SetStateAndTimeDuringRewind()
     {
-        Debug.Log(numberOfTheState);
-        if (Time.fixedDeltaTime <= waitedTime)
+        if (deltaTime <= waitedTime)
         {
-            waitedTime -= Time.fixedDeltaTime;
             currentState = states[numberOfTheState];
             timeToWait = timeAtStates[numberOfTheState];
+            waitedTime -= deltaTime;
             return;
         }
         else if (numberOfTheState == 0)
@@ -142,12 +154,7 @@ public class PlayerTimeline : MonoBehaviour
             numberOfTheState--;
             currentState = states[numberOfTheState];
             timeToWait = timeAtStates[numberOfTheState];
-
-            waitedTime = waitedTime - Time.fixedDeltaTime + timeToWait;
-
-            //rewindedTime -= waitedTime;
-            //waitedTime = timeToWait;
-            //SetStateAndTimeDuringRewind(rewindedTime);
+            waitedTime = waitedTime - deltaTime + timeToWait;
         }
     }
 
@@ -157,6 +164,7 @@ public class PlayerTimeline : MonoBehaviour
         isRewindingPlayer = true;
         playerBoxCollider.isTrigger = true;
         playerRb.isKinematic = true;
+        Time.timeScale = 1;
     }
     void StopRewind()
     {

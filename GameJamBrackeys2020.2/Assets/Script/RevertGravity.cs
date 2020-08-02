@@ -2,25 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RevertGravity : MonoBehaviour
+public class RevertGravity : MonoBehaviour, ITriggerInTime
 { 
-    bool active = false;
 
+    bool timeForward = true;
     [SerializeField] Rigidbody2D whatToRevert = null;
-    
 
-    // Update is called once per frame
-    void Update()
+
+    public void TriggerInTime(bool isRewinding)
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (timeForward != isRewinding)
         {
-            active = !active;
-
-            if (active)
-                whatToRevert.gravityScale = -1;
-            else
-                whatToRevert.gravityScale = 1;
+            timeForward = !timeForward;
+            whatToRevert.gravityScale *= -1;
         }
-
     }
+
 }

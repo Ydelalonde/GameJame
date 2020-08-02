@@ -34,7 +34,7 @@ public class PlayerTimeline : MonoBehaviour
     float timeToWait = 0f;
     float waitedTime = 0f;
 
-    bool isRewinding = false;
+    bool isRewindingPlayer = false;
     List<Vector3> positions = new List<Vector3>();
     #endregion
 
@@ -61,7 +61,7 @@ public class PlayerTimeline : MonoBehaviour
         else
             StopRewind();
 
-        if (currentState == BottomAction.E_FINNISH || isRewinding)
+        if (currentState == BottomAction.E_FINNISH || isRewindingPlayer)
             return;
 
         if (waitedTime >= timeToWait)
@@ -76,7 +76,7 @@ public class PlayerTimeline : MonoBehaviour
     void FixedUpdate()
     {
         //Rewind
-        if (isRewinding)
+        if (isRewindingPlayer)
         {
             SetStateAndTimeDuringRewind();
 
@@ -154,13 +154,13 @@ public class PlayerTimeline : MonoBehaviour
 
     void StartRewind()
     {
-        isRewinding = true;
+        isRewindingPlayer = true;
         playerBoxCollider.isTrigger = true;
         playerRb.isKinematic = true;
     }
     void StopRewind()
     {
-        isRewinding = false;
+        isRewindingPlayer = false;
         playerBoxCollider.isTrigger = false;
         playerRb.isKinematic = false;
     }

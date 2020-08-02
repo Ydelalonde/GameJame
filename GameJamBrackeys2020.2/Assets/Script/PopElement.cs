@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopElement : MonoBehaviour
-{
-    bool active = true;
+public class PopElement : MonoBehaviour, ITriggerInTime
+{ 
 
+    bool timeForward = true;
     [SerializeField] GameObject whatToPop = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        whatToPop.SetActive(active);
 
-        if (Input.GetKeyDown(KeyCode.W))
-            active = !active;
+    public void TriggerInTime(bool isRewinding)
+    {
+        if (timeForward != isRewinding)
+        {
+            timeForward = !timeForward;
+            whatToPop.SetActive(!whatToPop.activeSelf);
+        }
+        
     }
+
 }

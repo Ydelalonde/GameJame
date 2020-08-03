@@ -7,64 +7,46 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     [SerializeField] bool startingMode = false;
     [SerializeField] float speed = 2.0f;
     float rewindScale = 0f;
-    [SerializeField] private Transform[] wayPoints = null;
+    [SerializeField] Transform[] wayPoints = null;
     [SerializeField] float[] timeAtWayPoints = null;
 
-
-    bool goingForward = false; 
+    bool isActive = false;
+    bool goingForward = true; 
     int currentDest = 0;
     Vector2 direction;
     float waitedTime = 0;
     float timeToWait = 0;
 
-    public float AdditionnalTime()
+
+    public void TriggerInTime()
     {
-        float time = 0f;
-        foreach (float F in timeAtWayPoints)
-            time += F;
-
-        float distance = 0f;
-        for (int i = 0; i < wayPoints.Length - 1; ++i)
-            distance += (wayPoints[i + 1].position - wayPoints[i].position).magnitude;
-
-        //waited time + translation time
-        return time + distance / speed; 
-    }
-
-    public void TriggerInTime(bool isRewinding)
-    {
-        if (goingForward == isRewinding)
-        {
-            goingForward = !goingForward;
-
-            //if in-Between
-            if (waitedTime == 0)
-                GoToNextDestination();
-
-            if (!goingForward)
-                timeToWait = waitedTime * 2;
-        }
+        isActive = !isActive;
     }
 
     void Start ()
     {
         if (startingMode)
-            goingForward = true;
+            isActive = true;
 
-        rewindScale = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>().RewindScale;
+        LDTimeline timelineLD = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>();
+        rewindScale = timelineLD.RewindScale;
+        timelineLD.changeRewindDelegate += OnChangeRewind;
 
         GetDirection();
     }
 
-
     void Update()
     {
-        Vector2 translation = direction * speed * Time.deltaTime;
-        if (!goingForward)
-            translation *= rewindScale;
-
+        if (!isActive)
+            return;
+        
         if (!ReachDestination())
-                transform.Translate(translation);
+        {
+            Vector2 translation = direction * speed * Time.deltaTime;
+            if (!goingForward)
+                translation *= rewindScale;
+            transform.Translate(translation);
+        }
         else
         {
             if (waitedTime >= timeToWait)
@@ -98,4 +80,22 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         GetDirection();
     }
 
+    void OnChangeRewind(bool isRewind)
+    {
+        goingForward = !goingForward;
+
+        if (!isActive)
+            return;
+
+        Debug.Log(currentDest);
+        //if in-Between
+        if (!ReachDestination())
+            GoToNextDestination();
+
+        //to wait the same time as already waited before going back
+        if (!goingForward)
+            timeToWait = waitedTime * 2;
+        
+
+    }
 }

@@ -4,23 +4,11 @@ using UnityEngine;
 
 public class PopElement : MonoBehaviour, ITriggerInTime
 { 
-
-    bool timeForward = true;
     [SerializeField] GameObject whatToPop = null;
 
-    public float AdditionnalTime()
+    public void TriggerInTime()
     {
-        return 0;
-    }
-
-    public void TriggerInTime(bool isRewinding)
-    {
-        if (timeForward != isRewinding)
-        {
-            timeForward = !timeForward;
-            whatToPop.SetActive(!whatToPop.activeSelf);
-        }
-        
+        whatToPop.SetActive(!whatToPop.activeSelf);
     }
 
 }

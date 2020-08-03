@@ -39,6 +39,7 @@ public class PlayerTimeline : MonoBehaviour
             currentState = value;
             if (currentState == BottomAction.E_FINNISH)
             {
+                coolDownForRewind = 0;
                 Time.timeScale = 0;
                 playerRb.isKinematic = true;
             }

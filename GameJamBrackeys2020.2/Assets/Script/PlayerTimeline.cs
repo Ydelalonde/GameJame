@@ -27,6 +27,7 @@ public class PlayerTimeline : MonoBehaviour
 
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
+    float playerhalfWidth = 0f;
 
     int numberOfTheState = 0;
     [SerializeField] BottomAction[] states = null;
@@ -39,7 +40,7 @@ public class PlayerTimeline : MonoBehaviour
             currentState = value;
             if (currentState == BottomAction.E_FINNISH)
             {
-                coolDownForRewind = 0;
+                remainingCoolDownForRewind = 0;
                 Time.timeScale = 0;
                 playerRb.isKinematic = true;
             }
@@ -51,6 +52,11 @@ public class PlayerTimeline : MonoBehaviour
     float waitedTime = 0f;
 
     bool isRewindingPlayer = false;
+    [SerializeField] bool canStopRewind = true; /////////////////////////////////
+    public bool CanStopRewind
+    {
+        set => canStopRewind = value;
+    }
     List<Vector3> positions = new List<Vector3>();
     #endregion
 
@@ -61,6 +67,7 @@ public class PlayerTimeline : MonoBehaviour
 
         playerBoxCollider = player.GetComponent<BoxCollider2D>();
         playerRb = player.GetComponent<Rigidbody2D>();
+        playerhalfWidth = playerBoxCollider.size.x / 2;
 
         for (int i = 0; i < timeAtStates.Length; ++i)
             maximumLength += timeAtStates[i];
@@ -72,9 +79,9 @@ public class PlayerTimeline : MonoBehaviour
         remainingCoolDownForRewind -= Time.deltaTime;
         UpdateSlider();
         
-        if (Input.GetKey(KeyCode.A) && remainingCoolDownForRewind < 0)
+        if (Input.GetKey(KeyCode.A) && remainingCoolDownForRewind <= 0)
             StartRewind();
-        else if (isRewindingPlayer)
+        else if (isRewindingPlayer && canStopRewind)
         {
             remainingCoolDownForRewind = coolDownForRewind;
             StopRewind();
@@ -113,7 +120,7 @@ public class PlayerTimeline : MonoBehaviour
             if (currentState != BottomAction.E_FINNISH)
                 positions.Insert(0, player.position);
             //E_Right
-            if (currentState == BottomAction.E_RIGHT)
+            if (currentState == BottomAction.E_RIGHT && !Physics.Raycast(player.position, Vector3.right, playerhalfWidth + playerSpeed * Time.deltaTime))
                 player.Translate(player.right * playerSpeed * Time.deltaTime);
         }
 

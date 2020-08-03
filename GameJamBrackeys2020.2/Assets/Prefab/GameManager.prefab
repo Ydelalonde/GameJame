@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8406735317949200310}
-  - component: {fileID: 8406735317949200311}
-  - component: {fileID: 1440359354521545100}
+  - component: {fileID: 8896651959501601941}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -32,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8406735317949200311
+--- !u!114 &8896651959501601941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,25 +40,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8406735317949200265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f79bcece6618ee7448a4a47fe24a11ec, type: 3}
+  m_Script: {fileID: 11500000, guid: a2dacf607079dbf4a894b54b43fda164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSlider: {fileID: 0}
+  playerLengthOfTimeline: 0
+  playerTimeOnTheTimeline: 0
+  playerRewindScale: 0
+  playerCoolDownForRewind: 0
+  playerTriggers: 
+  playerTimeForTriggers: []
+  currentState: 0
   player: {fileID: 0}
-  playerSpeed: 10
-  states: 
-  timeAtStates: []
---- !u!114 &1440359354521545100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8406735317949200265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b7161b5651e81d4fa41b03af9f1a966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LDSlider: {fileID: 0}
-  lengthOfTimeline: 0
+  playerSpeed: 0
+  lDSlider: {fileID: 0}
+  lDLengthOfTimeline: 0
+  lDTimeOnTheTimeline: 0
+  lDRewindScale: 0
+  lDCoolDownForRewind: 0
+  lDObjectsToTrigger: []
+  lDTimeForTriggers: []

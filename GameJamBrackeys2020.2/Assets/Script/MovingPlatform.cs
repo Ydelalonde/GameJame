@@ -28,9 +28,9 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         if (startingMode)
             isActive = true;
 
-        LDTimeline timelineLD = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>();
-        rewindScale = timelineLD.RewindScale;
-        timelineLD.changeRewindDelegate += OnChangeRewind;
+        TimelinesManager timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
+        rewindScale = timelinesManager.LDRewindScale;
+        timelinesManager.changeRewindDelegate += OnChangeRewind;
 
         GetDirection();
     }

@@ -28,10 +28,10 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 300
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -92,10 +92,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 800
-      y: 129
-      width: 1027
-      height: 342
+      x: 2265
+      y: 132
+      width: 335
+      height: 335
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     internalID: 0
     spriteBone: []
@@ -106,7 +106,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 803, y: -217}
+    uvTransform: {x: 2068, y: -217}
   - name: "FB_C\xF4ne"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -114,8 +114,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 822
+      x: 1036
+      y: 486
       width: 461
       height: 187
     spriteID: c2be5e8ce6e018744b524f6ebe282e55
@@ -128,16 +128,16 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -297, y: -15}
-  - name: Calque 1
+    uvTransform: {x: 735, y: -351}
+  - name: FB_Body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
+      x: 786
+      y: 786
       width: 791
       height: 810
     spriteID: 9c4c315a9f6234f45acdfd386f7f57ef
@@ -150,7 +150,227 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -117, y: -99}
+    uvTransform: {x: 665, y: 683}
+  - name: Bumper_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 690
+      y: 1693
+      width: 530
+      height: 514
+    spriteID: 7ef3bcf9a9ae9a54e95ecba2eb5ab104
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 446, y: 1693}
+  - name: Bumper_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 28
+      width: 1024
+      height: 490
+    spriteID: 7a50ec46384f41649ae19ae440313ec0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  - name: Platform_M
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1285
+      y: 131
+      width: 335
+      height: 335
+    spriteID: c152aa2b510d430408c1ea5398dc70d6
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1036, y: -217}
+  - name: DeadZone
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2370
+      y: 792
+      width: 509
+      height: 509
+    spriteID: 1429229c77eaa5c4aad22f922f0deb67
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2366, y: 786}
+  - name: Magnet
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3398
+      y: 786
+      width: 649
+      height: 739
+    spriteID: 2bba40b80f492db4fb5c88ba87c13f27
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3094, y: 782}
+  - name: HUD_Fill
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3100
+      y: 4
+      width: 680
+      height: 646
+    spriteID: 558754b49b6e8174c8d2a9d43b8ce6bc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2926, y: -186}
+  - name: HUD_Mask
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1693
+      width: 678
+      height: 644
+    spriteID: ed052b57bc3c5db4e8188ea8c88a272c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -169, y: 1503}
+  - name: HUD_Circle copie
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1585
+      y: 786
+      width: 774
+      height: 899
+    spriteID: 431dea5bb62110b4f8a5873cb047f9f3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1460, y: 661}
+  - name: HUD_Circle
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 786
+      width: 774
+      height: 899
+    spriteID: 04d1bffde51312140b325c90c62d44a7
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -121, y: 786}
+  - name: HUD_Top
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3788
+      y: 4
+      width: 204
+      height: 426
+    spriteID: 10a22f7acaf854c449fcb78fd5550d1a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3376, y: -412}
   rigSpriteImportData:
   - name: Fireball
     originalName: 
@@ -204,33 +424,103 @@ ScriptedImporter:
   importedTextureWidth: 2048
   importedTextureHeight: 2048
   documentSize: {x: 1024, y: 1024}
-  textureActualWidth: 2048
-  textureActualHeight: 2048
+  textureActualWidth: 4096
+  textureActualHeight: 4096
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 0
   mosaicPSDLayers:
+  - name: HUD_Top
+    spriteName: HUD_Top
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 10a22f7acaf854c449fcb78fd5550d1a
+    layerID: 46
+    mosaicPosition: {x: 3788, y: 4}
+  - name: HUD_Fill
+    spriteName: HUD_Fill
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 558754b49b6e8174c8d2a9d43b8ce6bc
+    layerID: 44
+    mosaicPosition: {x: 3100, y: 4}
+  - name: HUD_Mask
+    spriteName: HUD_Mask
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ed052b57bc3c5db4e8188ea8c88a272c
+    layerID: 43
+    mosaicPosition: {x: 4, y: 1693}
+  - name: HUD_Circle copie
+    spriteName: HUD_Circle copie
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 431dea5bb62110b4f8a5873cb047f9f3
+    layerID: 42
+    mosaicPosition: {x: 1585, y: 786}
+  - name: HUD_Circle
+    spriteName: HUD_Circle
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 04d1bffde51312140b325c90c62d44a7
+    layerID: 40
+    mosaicPosition: {x: 4, y: 786}
+  - name: Magnet
+    spriteName: Magnet
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2bba40b80f492db4fb5c88ba87c13f27
+    layerID: 38
+    mosaicPosition: {x: 3398, y: 786}
+  - name: DeadZone
+    spriteName: DeadZone
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1429229c77eaa5c4aad22f922f0deb67
+    layerID: 35
+    mosaicPosition: {x: 2367, y: 786}
+  - name: Bumper_1
+    spriteName: Bumper_1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7ef3bcf9a9ae9a54e95ecba2eb5ab104
+    layerID: 16
+    mosaicPosition: {x: 690, y: 1693}
+  - name: Bumper_2
+    spriteName: Bumper_2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7a50ec46384f41649ae19ae440313ec0
+    layerID: 15
+    mosaicPosition: {x: 4, y: 4}
   - name: "FB_C\xF4ne"
     spriteName: "FB_C\xF4ne"
     isGroup: 0
     parentIndex: -1
     spriteID: c2be5e8ce6e018744b524f6ebe282e55
     layerID: 11
-    mosaicPosition: {x: 4, y: 822}
-  - name: Calque 1
-    spriteName: Calque 1
+    mosaicPosition: {x: 1036, y: 486}
+  - name: FB_Body
+    spriteName: FB_Body
     isGroup: 0
     parentIndex: -1
     spriteID: 9c4c315a9f6234f45acdfd386f7f57ef
     layerID: 12
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 786, y: 786}
+  - name: Platform_M
+    spriteName: Platform_M
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c152aa2b510d430408c1ea5398dc70d6
+    layerID: 32
+    mosaicPosition: {x: 1036, y: 4}
   - name: Platform
     spriteName: Platform
     isGroup: 0
     parentIndex: -1
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     layerID: 3
-    mosaicPosition: {x: 803, y: 4}
+    mosaicPosition: {x: 2068, y: 4}
   rigPSDLayers:
   - name: Fireball
     spriteName: Fireball

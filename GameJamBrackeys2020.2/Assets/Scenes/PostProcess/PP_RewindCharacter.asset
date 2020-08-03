@@ -58,8 +58,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   colorFilter:
-    overrideState: 0
-    value: {r: 0, g: 1, b: 0.5863812, a: 1}
+    overrideState: 1
+    value: {r: 0.6084906, g: 1, b: 0.83879024, a: 1}
   hueShift:
     overrideState: 0
     value: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Standard
+  m_Name: PP_RewindCharacter
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 4939912116476630338}
@@ -1346,7 +1346,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 32
+    value: 4
   intensityX:
     overrideState: 0
     value: 1
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1

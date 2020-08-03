@@ -87,7 +87,6 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         if (!isActive)
             return;
 
-        Debug.Log(currentDest);
         //if in-Between
         if (!ReachDestination())
             GoToNextDestination();

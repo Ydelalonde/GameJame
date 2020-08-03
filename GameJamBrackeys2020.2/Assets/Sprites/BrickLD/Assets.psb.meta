@@ -92,7 +92,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1
+      x: 800
       y: 129
       width: 1027
       height: 342
@@ -106,7 +106,51 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: -217}
+    uvTransform: {x: 803, y: -217}
+  - name: "FB_C\xF4ne"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 822
+      width: 461
+      height: 187
+    spriteID: c2be5e8ce6e018744b524f6ebe282e55
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -297, y: -15}
+  - name: Calque 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 791
+      height: 810
+    spriteID: 9c4c315a9f6234f45acdfd386f7f57ef
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -117, y: -99}
   rigSpriteImportData:
   - name: Fireball
     originalName: 
@@ -166,13 +210,27 @@ ScriptedImporter:
   resliceFromLayer: 0
   characterMode: 0
   mosaicPSDLayers:
+  - name: "FB_C\xF4ne"
+    spriteName: "FB_C\xF4ne"
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c2be5e8ce6e018744b524f6ebe282e55
+    layerID: 11
+    mosaicPosition: {x: 4, y: 822}
+  - name: Calque 1
+    spriteName: Calque 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 9c4c315a9f6234f45acdfd386f7f57ef
+    layerID: 12
+    mosaicPosition: {x: 4, y: 4}
   - name: Platform
     spriteName: Platform
     isGroup: 0
     parentIndex: -1
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     layerID: 3
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 803, y: 4}
   rigPSDLayers:
   - name: Fireball
     spriteName: Fireball

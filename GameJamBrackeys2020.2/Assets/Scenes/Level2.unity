@@ -608,6 +608,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 310406397445748472, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -616717335
+      objectReference: {fileID: 0}
+    - target: {fileID: 310406397445748472, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0498232550d19547984e460882df33b, type: 3}
 --- !u!114 &666108511 stripped
@@ -783,7 +793,17 @@ PrefabInstance:
     - target: {fileID: 5159094745565375972, guid: 0201b96437131ab4abad7f81be754221,
         type: 3}
       propertyPath: m_Mass
-      value: 0.67
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159094745565375972, guid: 0201b96437131ab4abad7f81be754221,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159094745565375972, guid: 0201b96437131ab4abad7f81be754221,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0201b96437131ab4abad7f81be754221, type: 3}

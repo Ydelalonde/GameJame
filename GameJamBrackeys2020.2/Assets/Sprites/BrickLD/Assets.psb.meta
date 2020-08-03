@@ -85,28 +85,6 @@ ScriptedImporter:
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData:
-  - name: Fireball
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 1024
-      height: 1024
-    spriteID: d9a6ecd270319bd49ab7ee64822c4b2c
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
   - name: Platform
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -114,10 +92,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1036
-      width: 1024
-      height: 240
+      x: 1
+      y: 129
+      width: 1027
+      height: 342
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     internalID: 0
     spriteBone: []
@@ -128,7 +106,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 636}
+    uvTransform: {x: 4, y: -217}
   rigSpriteImportData:
   - name: Fireball
     originalName: 
@@ -188,20 +166,13 @@ ScriptedImporter:
   resliceFromLayer: 0
   characterMode: 0
   mosaicPSDLayers:
-  - name: Fireball
-    spriteName: Fireball
-    isGroup: 0
-    parentIndex: -1
-    spriteID: d9a6ecd270319bd49ab7ee64822c4b2c
-    layerID: 4
-    mosaicPosition: {x: 4, y: 4}
   - name: Platform
     spriteName: Platform
     isGroup: 0
     parentIndex: -1
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     layerID: 3
-    mosaicPosition: {x: 4, y: 1036}
+    mosaicPosition: {x: 4, y: 4}
   rigPSDLayers:
   - name: Fireball
     spriteName: Fireball

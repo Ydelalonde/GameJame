@@ -11,4 +11,8 @@ public class PopElement : MonoBehaviour, ITriggerInTime
         whatToPop.SetActive(!whatToPop.activeSelf);
     }
 
+    public string GetName()
+    {
+        return "Magnet";
+    }
 }

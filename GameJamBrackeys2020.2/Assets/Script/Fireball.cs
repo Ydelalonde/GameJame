@@ -37,6 +37,11 @@ public class Fireball : MonoBehaviour, ITriggerInTime
             babyFireballs[i].SetActive(hasSpawnChilds);
     }
 
+    public string GetName()
+    {
+        return "Fireball";
+    }
+
     void OnChangeRewind(bool isRewind)
     {
         goingForward = !isRewind;

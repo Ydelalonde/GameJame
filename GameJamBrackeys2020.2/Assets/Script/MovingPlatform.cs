@@ -24,7 +24,11 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         isActive = !isActive;
         if (!isActive)
             Blurr.SetActive(false);
+    }
 
+    public string GetName()
+    {
+        return "MovingPlatform";
     }
 
     void Start ()

@@ -11,6 +11,15 @@ public enum PlayerState
 }
 public class TimelinesManager : MonoBehaviour
 {
+
+    #region Logo
+    [Header("Logo")]
+    [SerializeField] GameObject canvas = null;
+    [SerializeField] GameObject logoMagnet = null;
+    [SerializeField] GameObject logoMovingPlatform = null;
+    [SerializeField] GameObject logoFireball = null;
+    #endregion
+
     #region Post Process
     [Header("Post Process")]
     [SerializeField] GameObject postProcessStandard = null;
@@ -20,7 +29,7 @@ public class TimelinesManager : MonoBehaviour
 
     #region Player
     [Header("Player Timeline")] 
-    [SerializeField] Slider playerSlider = null;
+    [SerializeField] Image playerSlider = null;
     [SerializeField] float playerLengthOfTimeline = 0;
     [SerializeField] float playerTimeOnTheTimeline = 0f;/////////////////////////////////
     [SerializeField] float playerRewindScale = 0f;
@@ -31,18 +40,22 @@ public class TimelinesManager : MonoBehaviour
     {
         set
         {
-            playerIsRewinding = value;
-            playerBoxCollider.isTrigger = value;
+            if(playerIsRewinding != value)
+            {
+                playerIsRewinding = value;
+                playerBoxCollider.isTrigger = value;
 
-            Time.timeScale = (playerIsRewinding) ? 0 : 1;
-            Blurr.SetActive(playerIsRewinding);
+                Time.timeScale = (playerIsRewinding) ? 0 : 1;
+                Blurr.SetActive(playerIsRewinding);
 
-            postProcessPL.SetActive(playerIsRewinding);
-            postProcessStandard.SetActive(!playerIsRewinding);
+                postProcessPL.SetActive(playerIsRewinding);
+                postProcessStandard.SetActive(!playerIsRewinding);
 
 
-            if (currentState == PlayerState.E_FINNISH)
-                CurrentState = (playerNumberTriggersPassed > 1) ? playerTriggers[playerNumberTriggersPassed - 1] : PlayerState.E_RIGHT;
+                if (currentState == PlayerState.E_FINNISH)
+                    CurrentState = (playerNumberTriggersPassed > 1) ? playerTriggers[playerNumberTriggersPassed - 1] : PlayerState.E_RIGHT;
+
+            }
         }
     }
 
@@ -69,6 +82,8 @@ public class TimelinesManager : MonoBehaviour
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
     List<Vector3> positions = new List<Vector3>();
+    List<Vector2> velocitys = new List<Vector2>();
+
 
     [SerializeField] PlayerState[] playerTriggers = null;
     [SerializeField] float[] playerTimeForTriggers = null;
@@ -83,6 +98,7 @@ public class TimelinesManager : MonoBehaviour
     [SerializeField] Slider lDSlider = null;
     [SerializeField] float lDLengthOfTimeline = 0;
     [SerializeField] float lDTimeOnTheTimeline = 0f; /////////////////////////////////
+
     [SerializeField] float lDRewindScale = 0f;
     public float LDRewindScale
     {
@@ -97,15 +113,15 @@ public class TimelinesManager : MonoBehaviour
         {
             if (lDIsRewinding != value)
             {
+                changeRewindDelegate?.Invoke(value);
+
                 lDIsRewinding = value;
 
                 postProcessLD.SetActive(lDIsRewinding);
-                if(lDIsRewinding)
+                if (lDIsRewinding)
                     postProcessStandard.SetActive(false);
                 else if (!playerIsRewinding)
                     postProcessStandard.SetActive(true);
-                
-                changeRewindDelegate?.Invoke(lDIsRewinding);
             }
         }
     }
@@ -114,6 +130,7 @@ public class TimelinesManager : MonoBehaviour
     List<ITriggerInTime> lDTriggers = new List<ITriggerInTime>();
     [SerializeField] float[] lDTimeForTriggers = null;
     int lDNumberTriggersPassed = 0;
+
     List<GameObject> lDTemporaryObjectsToReactivate = new List<GameObject>();
     List<float> lDTimeForObjectsToReactivate = new List<float>();
 
@@ -133,8 +150,33 @@ public class TimelinesManager : MonoBehaviour
         for (int i = 0; i < lDObjectsToTrigger.Length; ++i)
             lDTriggers.Add(lDObjectsToTrigger[i].GetComponent<ITriggerInTime>());
 
-    }
+        //Logo
+        Rect sliderRect = lDSlider.GetComponent<RectTransform>().rect;
+        float sliderRatioXPerS = sliderRect.width / lDLengthOfTimeline;
+        Vector3 startingPosition = new Vector3(lDSlider.transform.position.x - sliderRect.width / 2, lDSlider.transform.position.y + sliderRect.height / 2, lDSlider.transform.position.z);
 
+        for (int i = 0; i < lDTriggers.Count; ++i)
+        {
+            GameObject gameObjectToInstantiate = GetWhichGameObjectInstantiate(lDTriggers[i].GetName());
+
+            Instantiate(gameObjectToInstantiate, startingPosition + Vector3.right * (lDTimeForTriggers[i] * sliderRatioXPerS), Quaternion.identity, canvas.transform);
+        }
+
+    }
+    GameObject GetWhichGameObjectInstantiate(string triggerName)
+    {
+        switch (triggerName)
+        {
+            case "Magnet":
+                return logoMagnet;
+            case "MovingPlatform":
+                return logoMovingPlatform;
+            case "Fireball":
+                return logoFireball;
+            default:
+                return null;
+        }
+    }
 
     void Update()
     {
@@ -196,7 +238,7 @@ public class TimelinesManager : MonoBehaviour
     void UpdateSliders()
     {
         //Player
-        playerSlider.value = playerTimeOnTheTimeline / playerLengthOfTimeline;
+        playerSlider.fillAmount = playerTimeOnTheTimeline / playerLengthOfTimeline;
         //LD
         lDSlider.value = lDTimeOnTheTimeline / lDLengthOfTimeline;
     }
@@ -284,13 +326,19 @@ public class TimelinesManager : MonoBehaviour
                 {
                     player.position = positions[0];
                     positions.RemoveAt(0);
+
+                    playerRb.velocity = velocitys[0];
+                    velocitys.RemoveAt(0);
                 }
         }
         else if (!lDIsRewinding)
         {
             //Record
             if (currentState != PlayerState.E_FINNISH)
+            {
                 positions.Insert(0, player.position);
+                velocitys.Insert(0, playerRb.velocity);
+            }
             //E_Right
             if (currentState == PlayerState.E_RIGHT)
                 player.Translate(player.right * playerSpeed * Time.deltaTime);

@@ -14,8 +14,7 @@ public class Bumper : MonoBehaviour
             if (playerRb == null)
                 playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            Vector3 forward = transform.up;
-            playerRb.velocity = new Vector2(forward.x, forward.y) * jumpThrust;
+            playerRb.velocity += new Vector2(transform.up.x, transform.up.y) * jumpThrust;
         }
     }
 }

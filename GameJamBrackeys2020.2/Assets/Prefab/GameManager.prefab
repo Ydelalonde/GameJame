@@ -43,16 +43,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2dacf607079dbf4a894b54b43fda164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  logoMagnet: {fileID: 7586985996373551810, guid: 2270b0f256acd274eb3cd4fbb109fcb5,
+    type: 3}
+  logoMovingPlatform: {fileID: 3097749643323945537, guid: 6aecf5ac8b20ea148bc6b0ee2a76f4b4,
+    type: 3}
+  logoFireball: {fileID: 8998408245569729130, guid: c19f12c9bebc2ca469cb6fe9197df4d6,
+    type: 3}
+  postProcessStandard: {fileID: 0}
+  postProcessPL: {fileID: 0}
+  postProcessLD: {fileID: 0}
   playerSlider: {fileID: 0}
   playerLengthOfTimeline: 0
   playerTimeOnTheTimeline: 0
   playerRewindScale: 0
   playerCoolDownForRewind: 0
+  currentState: 1
+  player: {fileID: 0}
+  Blurr: {fileID: 0}
+  playerSpeed: 0
   playerTriggers: 
   playerTimeForTriggers: []
-  currentState: 0
-  player: {fileID: 0}
-  playerSpeed: 0
   lDSlider: {fileID: 0}
   lDLengthOfTimeline: 0
   lDTimeOnTheTimeline: 0

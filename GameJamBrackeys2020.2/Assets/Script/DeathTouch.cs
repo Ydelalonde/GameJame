@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class DeathTouch : MonoBehaviour
 {
-    PlayerTimeline playerTimeline = null;
+    TimelinesManager timelinesManager = null;
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (playerTimeline == null)
-                playerTimeline = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerTimeline>();
+            if (timelinesManager == null)
+                timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
 
-           playerTimeline.CurrentState = BottomAction.E_FINNISH;
+            timelinesManager.CurrentState = PlayerState.E_FINNISH;
         }
     }
 }

@@ -10,20 +10,20 @@ public class BabyFireball : MonoBehaviour
     {
         set => speed = value;
     }
-    LDTimeline timelineLD = null;
+    TimelinesManager timelinesManager = null;
     float rewindScale = 0f;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        timelineLD.AddTemporaryObjectsToReactivate(gameObject);
+        timelinesManager.AddTemporaryObjectsToReactivate(gameObject);
     }
 
     void Start()
     {
-        timelineLD = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>();
-        rewindScale = timelineLD.RewindScale;
-        timelineLD.changeRewindDelegate += OnChangeRewind;
+        timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
+        rewindScale = timelinesManager.LDRewindScale;
+        timelinesManager.changeRewindDelegate += OnChangeRewind;
     }
 
     void Update()

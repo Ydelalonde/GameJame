@@ -7,6 +7,7 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     [SerializeField] bool startingMode = false;
     [SerializeField] float speed = 2.0f;
     float rewindScale = 0f;
+    [SerializeField] GameObject Blurr = null;
     [SerializeField] Transform[] wayPoints = null;
     [SerializeField] float[] timeAtWayPoints = null;
 
@@ -21,6 +22,9 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     public void TriggerInTime()
     {
         isActive = !isActive;
+        if (!isActive)
+            Blurr.SetActive(false);
+
     }
 
     void Start ()
@@ -28,9 +32,9 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         if (startingMode)
             isActive = true;
 
-        LDTimeline timelineLD = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>();
-        rewindScale = timelineLD.RewindScale;
-        timelineLD.changeRewindDelegate += OnChangeRewind;
+        TimelinesManager timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
+        rewindScale = timelinesManager.LDRewindScale;
+        timelinesManager.changeRewindDelegate += OnChangeRewind;
 
         GetDirection();
     }
@@ -84,8 +88,11 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     {
         goingForward = !goingForward;
 
+
         if (!isActive)
             return;
+
+        Blurr.SetActive(!goingForward);
 
         //if in-Between
         if (!ReachDestination())

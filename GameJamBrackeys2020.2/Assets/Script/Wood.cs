@@ -5,16 +5,16 @@ using UnityEngine;
 public class Wood : MonoBehaviour
 {
 
-    LDTimeline timelineLD = null;
+    TimelinesManager timelinesManager = null;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("FireBall"))
-            timelineLD.AddTemporaryObjectsToReactivate(gameObject);
+            timelinesManager.AddTemporaryObjectsToReactivate(gameObject);
     }
 
     void Start()
     {
-        timelineLD = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LDTimeline>();
+        timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
     }
 }

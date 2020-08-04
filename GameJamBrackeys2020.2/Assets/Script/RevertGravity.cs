@@ -2,14 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RevertGravity : MonoBehaviour, ITriggerInTime
+public class RevertGravity : MonoBehaviour
 { 
-    [SerializeField] Rigidbody2D whatToRevert = null;
+    Rigidbody2D rbToRevert = null;
 
-
-    public void TriggerInTime()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        whatToRevert.gravityScale *= -1;
+        if (collision.CompareTag("Player"))
+        {
+            if (rbToRevert == null)
+                rbToRevert = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            rbToRevert.gravityScale *= -1;
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (rbToRevert == null)
+                rbToRevert = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            rbToRevert.gravityScale *= -1;
+        }
+    }
 }

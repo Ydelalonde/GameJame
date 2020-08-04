@@ -11,6 +11,13 @@ public enum PlayerState
 }
 public class TimelinesManager : MonoBehaviour
 {
+    #region Post Process
+    [Header("Post Process")]
+    [SerializeField] GameObject postProcessStandard = null;
+    [SerializeField] GameObject postProcessPL = null;
+    [SerializeField] GameObject postProcessLD = null;
+    #endregion
+
     #region Player
     [Header("Player Timeline")] 
     [SerializeField] Slider playerSlider = null;
@@ -27,7 +34,14 @@ public class TimelinesManager : MonoBehaviour
             playerIsRewinding = value;
             playerBoxCollider.isTrigger = value;
 
-            if (currentState == PlayerState.E_FINNISH && playerIsRewinding)
+            Time.timeScale = (playerIsRewinding) ? 0 : 1;
+            Blurr.SetActive(playerIsRewinding);
+
+            postProcessPL.SetActive(playerIsRewinding);
+            postProcessStandard.SetActive(!playerIsRewinding);
+
+
+            if (currentState == PlayerState.E_FINNISH)
                 CurrentState = (playerNumberTriggersPassed > 1) ? playerTriggers[playerNumberTriggersPassed - 1] : PlayerState.E_RIGHT;
         }
     }
@@ -38,10 +52,8 @@ public class TimelinesManager : MonoBehaviour
         set
         {
             if (currentState == PlayerState.E_FINNISH)
-            {
-                Time.timeScale = 1;
                 playerRb.isKinematic = false;
-            }
+
             currentState = value;
             if (currentState == PlayerState.E_FINNISH)
             {
@@ -52,6 +64,7 @@ public class TimelinesManager : MonoBehaviour
         }
     }
     [SerializeField] Transform player = null;
+    [SerializeField] GameObject Blurr = null;
     [SerializeField] float playerSpeed = 0f;
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
@@ -85,6 +98,13 @@ public class TimelinesManager : MonoBehaviour
             if (lDIsRewinding != value)
             {
                 lDIsRewinding = value;
+
+                postProcessLD.SetActive(lDIsRewinding);
+                if(lDIsRewinding)
+                    postProcessStandard.SetActive(false);
+                else if (!playerIsRewinding)
+                    postProcessStandard.SetActive(true);
+                
                 changeRewindDelegate?.Invoke(lDIsRewinding);
             }
         }
@@ -134,6 +154,7 @@ public class TimelinesManager : MonoBehaviour
 
     void CheckInput()
     {
+        //Player
         if (Input.GetKey(KeyCode.A) && playerRemainingCoolDownForRewind <= 0)
             PlayerIsRewinding = true;
         else if (playerIsRewinding)
@@ -142,7 +163,8 @@ public class TimelinesManager : MonoBehaviour
             PlayerIsRewinding = false;
         }
 
-        if (Input.GetKey(KeyCode.E) && lDRemainingCoolDownForRewind < 0)
+        //LD
+        if (Input.GetKey(KeyCode.E) && lDRemainingCoolDownForRewind < 0 && !playerIsRewinding)
             LDIsRewinding = true;
         else if (lDIsRewinding)
         {
@@ -155,11 +177,15 @@ public class TimelinesManager : MonoBehaviour
     void UpdateTimeline()
     {
         //Player
-        if(Time.timeScale == 1)
-            playerTimeOnTheTimeline += (playerIsRewinding) ? -Time.deltaTime * playerRewindScale : Time.deltaTime;
-        else if(currentState != PlayerState.E_FINNISH)
-            playerTimeOnTheTimeline += (playerIsRewinding) ? -Time.unscaledDeltaTime * playerRewindScale : Time.unscaledDeltaTime;
-        playerTimeOnTheTimeline = Mathf.Clamp(playerTimeOnTheTimeline, 0, playerLengthOfTimeline);
+        if(!lDIsRewinding)
+        {        
+            if(Time.timeScale == 1)
+                playerTimeOnTheTimeline += (playerIsRewinding) ? -Time.deltaTime * playerRewindScale : Time.deltaTime;
+            else if(currentState != PlayerState.E_FINNISH)
+                playerTimeOnTheTimeline += (playerIsRewinding) ? -Time.unscaledDeltaTime * playerRewindScale : Time.unscaledDeltaTime;
+
+            playerTimeOnTheTimeline = Mathf.Clamp(playerTimeOnTheTimeline, 0, playerLengthOfTimeline);
+        }
 
 
         //LD
@@ -260,7 +286,7 @@ public class TimelinesManager : MonoBehaviour
                     positions.RemoveAt(0);
                 }
         }
-        else
+        else if (!lDIsRewinding)
         {
             //Record
             if (currentState != PlayerState.E_FINNISH)

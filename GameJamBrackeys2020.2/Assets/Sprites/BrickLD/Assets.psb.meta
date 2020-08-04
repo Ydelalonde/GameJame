@@ -89,12 +89,12 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 100, y: 72, z: 71, w: 100}
     rect:
       serializedVersion: 2
-      x: 2265
+      x: 2070
       y: 132
-      width: 335
+      width: 1013
       height: 335
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     internalID: 0
@@ -199,12 +199,12 @@ ScriptedImporter:
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 80, y: 0, z: 80, w: 0}
     rect:
       serializedVersion: 2
-      x: 1285
+      x: 1032
       y: 131
-      width: 335
+      width: 1025
       height: 335
     spriteID: c152aa2b510d430408c1ea5398dc70d6
     internalID: 0

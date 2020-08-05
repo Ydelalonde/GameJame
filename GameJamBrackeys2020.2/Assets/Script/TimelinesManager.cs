@@ -11,11 +11,34 @@ public enum PlayerState
 }
 public class TimelinesManager : MonoBehaviour
 {
+    #region LevelState
     bool isLevelFinished = false;
+    bool isLevelPaused = false;
+    public bool IsLevelPaused
+    {
+        set
+        {
+            isLevelPaused = value;
 
-    #region Logo
-    [Header("Logo")]
+            if (isLevelPaused)
+            {
+                Time.timeScale = 0;
+                canvasAnim.SetBool("isPaused", true);
+            }
+            else
+            {
+                canvasAnim.SetBool("isPaused", false);
+                if(currentState != PlayerState.E_DEAD)
+                    Time.timeScale = 1;
+            }
+        }
+    }
+    #endregion
+
+    #region Canvas
+    [Header("Canvas")]
     [SerializeField] GameObject canvas = null;
+    Animator canvasAnim = null;
     [SerializeField] GameObject logoMagnet = null;
     [SerializeField] GameObject logoMovingPlatform = null;
     [SerializeField] GameObject logoFireball = null;
@@ -165,6 +188,7 @@ public class TimelinesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         //Player
         playerBoxCollider = player.GetComponent<BoxCollider2D>();
         playerRb = player.GetComponent<Rigidbody2D>();
@@ -173,7 +197,8 @@ public class TimelinesManager : MonoBehaviour
         for (int i = 0; i < lDObjectsToTrigger.Length; ++i)
             lDTriggers.Add(lDObjectsToTrigger[i].GetComponent<ITriggerInTime>());
 
-        //Logo
+        //Canvas
+        canvasAnim = canvas.GetComponent<Animator>();
         Rect sliderRect = lDSlider.GetComponent<RectTransform>().rect;
         float sliderRatioXPerS = sliderRect.width  / lDLengthOfTimeline;
         Vector3 startingPosition = new Vector3(lDSlider.transform.position.x - sliderRect.width / 2, lDSlider.transform.position.y + sliderRect.height / 2, lDSlider.transform.position.z);
@@ -206,6 +231,12 @@ public class TimelinesManager : MonoBehaviour
         if (isLevelFinished)
             return;
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            IsLevelPaused = !isLevelPaused;
+
+        if (isLevelPaused)
+            return;
+
         playerRemainingCoolDownForRewind -= Time.deltaTime;
         lDRemainingCoolDownForRewind -= Time.deltaTime;
 
@@ -232,7 +263,7 @@ public class TimelinesManager : MonoBehaviour
         }
 
         //LD
-        if (Input.GetKey(KeyCode.E) && lDRemainingCoolDownForRewind < 0 && !playerIsRewinding)
+        if (Input.GetKey(KeyCode.E) && lDRemainingCoolDownForRewind < 0 && !playerIsRewinding && currentState != PlayerState.E_DEAD)
             LDIsRewinding = true;
         else if (lDIsRewinding)
         {
@@ -347,7 +378,7 @@ public class TimelinesManager : MonoBehaviour
         //Rewind
         if (playerIsRewinding)
         {
-            if (positions.Count > 0)
+            if (positions.Count >= playerRewindScale)
                 for (int i = 0; i < playerRewindScale; ++i)
                 {
                     player.position = positions[0];
@@ -377,7 +408,7 @@ public class TimelinesManager : MonoBehaviour
             return;
 
         for (int i = 0; i < lDTemporaryObjectsToReactivate.Count; ++i)
-            if (lDTimeOnTheTimeline < lDTimeForObjectsToReactivate[i])
+            if (lDTimeOnTheTimeline <= lDTimeForObjectsToReactivate[i])
             {
                 lDTemporaryObjectsToReactivate[i].SetActive(true);
 

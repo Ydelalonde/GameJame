@@ -14,7 +14,7 @@ public class DeathTouch : MonoBehaviour
             if (timelinesManager == null)
                 timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
 
-            timelinesManager.CurrentState = PlayerState.E_FINNISH;
+            timelinesManager.CurrentState = PlayerState.E_DEAD;
         }
     }
 }

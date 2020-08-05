@@ -7,10 +7,11 @@ public enum PlayerState
 {
     E_IDLE,
     E_RIGHT,
-    E_FINNISH,
+    E_DEAD,
 }
 public class TimelinesManager : MonoBehaviour
 {
+    bool isLevelFinished = false;
 
     #region Logo
     [Header("Logo")]
@@ -52,7 +53,7 @@ public class TimelinesManager : MonoBehaviour
                 postProcessStandard.SetActive(!playerIsRewinding);
 
 
-                if (currentState == PlayerState.E_FINNISH)
+                if (currentState == PlayerState.E_DEAD)
                     CurrentState = (playerNumberTriggersPassed > 1) ? playerTriggers[playerNumberTriggersPassed - 1] : PlayerState.E_RIGHT;
 
             }
@@ -64,11 +65,11 @@ public class TimelinesManager : MonoBehaviour
     {
         set
         {
-            if (currentState == PlayerState.E_FINNISH)
+            if (currentState == PlayerState.E_DEAD)
                 playerRb.isKinematic = false;
 
             currentState = value;
-            if (currentState == PlayerState.E_FINNISH)
+            if (currentState == PlayerState.E_DEAD)
             {
                 playerRemainingCoolDownForRewind = 0;
                 Time.timeScale = 0;
@@ -81,6 +82,14 @@ public class TimelinesManager : MonoBehaviour
     [SerializeField] float playerSpeed = 0f;
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
+    Vector2 playerVelocitySaved = Vector2.zero;
+    float playerGravitySaved = 0f;
+    [SerializeField] bool canStopRewind = true; /////////////////////////////////
+    public bool CanStopRewind
+    {
+        set => canStopRewind = value;
+    }
+
     List<Vector3> positions = new List<Vector3>();
     List<Vector2> velocitys = new List<Vector2>();
 
@@ -100,10 +109,6 @@ public class TimelinesManager : MonoBehaviour
     [SerializeField] float lDTimeOnTheTimeline = 0f; /////////////////////////////////
 
     [SerializeField] float lDRewindScale = 0f;
-    public float LDRewindScale
-    {
-        get => lDRewindScale;
-    }
     [SerializeField] float lDCoolDownForRewind = 0f;
     float lDRemainingCoolDownForRewind = 0f;
     bool lDIsRewinding = false;
@@ -113,15 +118,33 @@ public class TimelinesManager : MonoBehaviour
         {
             if (lDIsRewinding != value)
             {
-                changeRewindDelegate?.Invoke(value);
-
                 lDIsRewinding = value;
-
+                changeRewindDelegate?.Invoke(lDIsRewinding);
                 postProcessLD.SetActive(lDIsRewinding);
-                if (lDIsRewinding)
+
+                if(lDIsRewinding)
+                {
                     postProcessStandard.SetActive(false);
-                else if (!playerIsRewinding)
-                    postProcessStandard.SetActive(true);
+                    Time.timeScale = lDRewindScale;
+                
+                    //block Player in the air if LDIsRewinding
+                    playerVelocitySaved = playerRb.velocity;
+                    playerRb.velocity = Vector2.zero;
+                    playerGravitySaved = playerRb.gravityScale;
+                    playerRb.gravityScale = 0;
+                }
+                else
+                {
+                    //Unblock Player in the air if LDIsRewinding
+                    playerRb.velocity = playerVelocitySaved;
+                    playerRb.gravityScale = playerGravitySaved;
+
+                    if (!playerIsRewinding)
+                    {
+                        Time.timeScale = 1;
+                        postProcessStandard.SetActive(true);
+                    }
+                }
             }
         }
     }
@@ -152,7 +175,7 @@ public class TimelinesManager : MonoBehaviour
 
         //Logo
         Rect sliderRect = lDSlider.GetComponent<RectTransform>().rect;
-        float sliderRatioXPerS = sliderRect.width / lDLengthOfTimeline;
+        float sliderRatioXPerS = sliderRect.width  / lDLengthOfTimeline;
         Vector3 startingPosition = new Vector3(lDSlider.transform.position.x - sliderRect.width / 2, lDSlider.transform.position.y + sliderRect.height / 2, lDSlider.transform.position.z);
 
         for (int i = 0; i < lDTriggers.Count; ++i)
@@ -180,6 +203,9 @@ public class TimelinesManager : MonoBehaviour
 
     void Update()
     {
+        if (isLevelFinished)
+            return;
+
         playerRemainingCoolDownForRewind -= Time.deltaTime;
         lDRemainingCoolDownForRewind -= Time.deltaTime;
 
@@ -199,7 +225,7 @@ public class TimelinesManager : MonoBehaviour
         //Player
         if (Input.GetKey(KeyCode.A) && playerRemainingCoolDownForRewind <= 0)
             PlayerIsRewinding = true;
-        else if (playerIsRewinding)
+        else if (playerIsRewinding && canStopRewind)
         {
             playerRemainingCoolDownForRewind = playerCoolDownForRewind;
             PlayerIsRewinding = false;
@@ -223,7 +249,7 @@ public class TimelinesManager : MonoBehaviour
         {        
             if(Time.timeScale == 1)
                 playerTimeOnTheTimeline += (playerIsRewinding) ? -Time.deltaTime * playerRewindScale : Time.deltaTime;
-            else if(currentState != PlayerState.E_FINNISH)
+            else if(currentState != PlayerState.E_DEAD)
                 playerTimeOnTheTimeline += (playerIsRewinding) ? -Time.unscaledDeltaTime * playerRewindScale : Time.unscaledDeltaTime;
 
             playerTimeOnTheTimeline = Mathf.Clamp(playerTimeOnTheTimeline, 0, playerLengthOfTimeline);
@@ -231,7 +257,7 @@ public class TimelinesManager : MonoBehaviour
 
 
         //LD
-        lDTimeOnTheTimeline += (lDIsRewinding) ? -Time.deltaTime * LDRewindScale : Time.deltaTime;
+        lDTimeOnTheTimeline += (lDIsRewinding) ? -Time.deltaTime : Time.deltaTime;
         lDTimeOnTheTimeline = Mathf.Clamp(lDTimeOnTheTimeline, 0, lDLengthOfTimeline);
     }
 
@@ -314,7 +340,7 @@ public class TimelinesManager : MonoBehaviour
         //if reach end
         if (playerTimeOnTheTimeline >= playerLengthOfTimeline && !playerIsRewinding)
         {
-            CurrentState = PlayerState.E_FINNISH;
+            CurrentState = PlayerState.E_DEAD;
             return;
         }
 
@@ -334,7 +360,7 @@ public class TimelinesManager : MonoBehaviour
         else if (!lDIsRewinding)
         {
             //Record
-            if (currentState != PlayerState.E_FINNISH)
+            if (currentState != PlayerState.E_DEAD)
             {
                 positions.Insert(0, player.position);
                 velocitys.Insert(0, playerRb.velocity);
@@ -365,6 +391,13 @@ public class TimelinesManager : MonoBehaviour
         lDTemporaryObjectsToReactivate.Add(objectToAdd);
         lDTimeForObjectsToReactivate.Add(lDTimeOnTheTimeline);
         objectToAdd.SetActive(false);
+    }
+
+
+    public void OnEndLevel()
+    {
+        isLevelFinished = true;
+        Time.timeScale = 0;
     }
 
 }

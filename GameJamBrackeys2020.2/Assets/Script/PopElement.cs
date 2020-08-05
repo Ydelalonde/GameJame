@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PopElement : MonoBehaviour, ITriggerInTime
 { 
-    [SerializeField] GameObject whatToPop = null;
+    [SerializeField] GameObject[] whatToPop = null;
 
     public void TriggerInTime()
     {
-        whatToPop.SetActive(!whatToPop.activeSelf);
+        foreach(GameObject G in whatToPop)
+            G.SetActive(!G.activeSelf);
     }
 
     public string GetName()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5159094745565375992}
   - component: {fileID: 5159094745565375975}
   - component: {fileID: 5159094745565375972}
+  - component: {fileID: 5321851663487176299}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -83,6 +84,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &5321851663487176299
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159094745565375971}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3eb35913f4606644c894a58256e979c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7186453130756910334
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7186453130756910334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.436, z: 0}
+  m_LocalPosition: {x: 0, y: -0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5159094745565375992}
@@ -173,8 +193,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.8204432, g: 0.9716981, b: 0.9700844, a: 1}
+      key1: {r: 0.7122642, g: 1, b: 0.99024886, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -299,6 +319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_Smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804194889569399836, guid: 7183b46cc9a9e6141a77cf03482403ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7510589231327925655, guid: 7183b46cc9a9e6141a77cf03482403ea,
         type: 3}
@@ -605,7 +630,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.9588155
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 395502732059213792, guid: 9b046980a226c3e44912f917b1a2f235, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9b046980a226c3e44912f917b1a2f235, type: 3}
 --- !u!4 &8926901930152943705 stripped
 Transform:

@@ -11,7 +11,6 @@ public class BabyFireball : MonoBehaviour
         set => speed = value;
     }
     TimelinesManager timelinesManager = null;
-    float rewindScale = 0f;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +21,6 @@ public class BabyFireball : MonoBehaviour
     void Start()
     {
         timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
-        rewindScale = timelinesManager.LDRewindScale;
         timelinesManager.changeRewindDelegate += OnChangeRewind;
     }
 
@@ -31,7 +29,7 @@ public class BabyFireball : MonoBehaviour
         Vector3 translation = Vector3.up * speed * Time.deltaTime;
 
         if (!goingForward)
-            translation *= -rewindScale;
+            translation *= -1;
 
         transform.Translate(translation);
     }

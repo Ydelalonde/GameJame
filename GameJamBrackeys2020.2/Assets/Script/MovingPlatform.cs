@@ -6,7 +6,6 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
 {
     [SerializeField] bool startingMode = false;
     [SerializeField] float speed = 2.0f;
-    float rewindScale = 0f;
     [SerializeField] GameObject Blurr = null;
     [SerializeField] Transform[] wayPoints = null;
     [SerializeField] float[] timeAtWayPoints = null;
@@ -37,7 +36,6 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
             isActive = true;
 
         TimelinesManager timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
-        rewindScale = timelinesManager.LDRewindScale;
         timelinesManager.changeRewindDelegate += OnChangeRewind;
 
         GetDirection();
@@ -51,8 +49,6 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         if (!ReachDestination())
         {
             Vector2 translation = direction * speed * Time.deltaTime;
-            if (!goingForward)
-                translation *= rewindScale;
             transform.Translate(translation);
         }
         else
@@ -64,7 +60,7 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
                     GoToNextDestination();
             }
             else
-                waitedTime += (goingForward)? Time.deltaTime : Time.deltaTime * rewindScale;
+                waitedTime += (goingForward)? Time.deltaTime : Time.deltaTime;
         }
 
     }

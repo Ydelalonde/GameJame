@@ -49,6 +49,8 @@ public class TimelinesManager : MonoBehaviour
     [SerializeField] GameObject postProcessStandard = null;
     [SerializeField] GameObject postProcessPL = null;
     [SerializeField] GameObject postProcessLD = null;
+    [SerializeField] GameObject postProcessDeath = null;
+    [SerializeField] GameObject PanelDeath = null;
     #endregion
 
     #region Player
@@ -89,7 +91,12 @@ public class TimelinesManager : MonoBehaviour
         set
         {
             if (currentState == PlayerState.E_DEAD)
+            {
                 playerRb.isKinematic = false;
+
+                postProcessDeath.SetActive(false);
+                PanelDeath.SetActive(false);
+            }
 
             currentState = value;
             if (currentState == PlayerState.E_DEAD)
@@ -97,6 +104,10 @@ public class TimelinesManager : MonoBehaviour
                 playerRemainingCoolDownForRewind = 0;
                 Time.timeScale = 0;
                 playerRb.isKinematic = true;
+
+                postProcessDeath.SetActive(true);
+                PanelDeath.SetActive(true);
+                postProcessStandard.SetActive(false);
             }
         }
     }

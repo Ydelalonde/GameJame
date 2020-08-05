@@ -12,10 +12,10 @@ public class BabyFireball : MonoBehaviour
     }
     TimelinesManager timelinesManager = null;
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        timelinesManager.AddTemporaryObjectsToReactivate(gameObject);
+        if (!collision.gameObject.CompareTag("Player") && goingForward)
+            timelinesManager.AddTemporaryObjectsToReactivate(gameObject);
     }
 
     void Start()

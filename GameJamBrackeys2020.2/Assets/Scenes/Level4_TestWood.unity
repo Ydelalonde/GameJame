@@ -2041,7 +2041,7 @@ PrefabInstance:
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: playerLengthOfTimeline
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
@@ -2061,7 +2061,7 @@ PrefabInstance:
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: lDLengthOfTimeline
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
@@ -2141,6 +2141,16 @@ PrefabInstance:
       propertyPath: lDObjectsToTrigger.Array.data[3]
       value: 
       objectReference: {fileID: 678814616}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: PanelDeath
+      value: 
+      objectReference: {fileID: 3033135907341763403}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: postProcessDeath
+      value: 
+      objectReference: {fileID: 3033135907341763404}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448bcde1f6d12045a0d11efd5bda6bf, type: 3}
 --- !u!4 &1502974267 stripped
@@ -3341,6 +3351,18 @@ GameObject:
 --- !u!1 &3033135907341763402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3033135908536468979, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+    type: 3}
+  m_PrefabInstance: {fileID: 3033135907341763399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3033135907341763403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3029043697390081298, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+    type: 3}
+  m_PrefabInstance: {fileID: 3033135907341763399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3033135907341763404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024473390, guid: 1bcf7fcb19c400440b0df29a7c36e179,
     type: 3}
   m_PrefabInstance: {fileID: 3033135907341763399}
   m_PrefabAsset: {fileID: 0}

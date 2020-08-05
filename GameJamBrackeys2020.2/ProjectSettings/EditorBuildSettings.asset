@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 2de36a117b932cd489db8b96be10dfb3
   - enabled: 1
+    path: Assets/Scenes/Level1_TestMagnet.unity
+    guid: 59db58baa9de33c47851281e04f713ab
+  - enabled: 1
     path: Assets/Scenes/Level2_TestBumper.unity
     guid: d3cabb724d6082c4997a1795dcc44ecd
   - enabled: 1

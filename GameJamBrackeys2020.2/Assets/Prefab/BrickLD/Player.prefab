@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6173909540312053748}
-  - component: {fileID: 1835790548674884490}
+  - component: {fileID: 8753638705985592042}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -134,9 +134,8 @@ Transform:
   m_Father: {fileID: 5159094745565375992}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &1835790548674884490
-TrailRenderer:
-  serializedVersion: 2
+--- !u!120 &8753638705985592042
+LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,13 +145,13 @@ TrailRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_MotionVectors: 1
+  m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +171,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -181,7 +180,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.09756088
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -226,9 +225,8 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
-  m_Emitting: 1
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!1 &8408441322960997127
 GameObject:
   m_ObjectHideFlags: 0

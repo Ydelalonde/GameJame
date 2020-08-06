@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class RevertGravity : MonoBehaviour
 {
+    TimelinesManager timelinesManager = null;
     Transform playerTransform = null;
     Rigidbody2D playerRb = null;
 
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Start()
+    {
+        timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
+    }
+
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -18,22 +25,19 @@ public class RevertGravity : MonoBehaviour
                 playerRb = playerTransform.GetComponent<Rigidbody2D>();
             }
 
-            RevertPlayer();
+            if (!timelinesManager.LDIsRewinding)
+                playerRb.gravityScale = -1;
+            playerTransform.localScale = new Vector3(1, -1, 1);
         }    
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-            RevertPlayer();
+        {
+            playerRb.gravityScale = 1;
+            playerTransform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
 
-    void RevertPlayer()
-    {
-        playerRb.gravityScale *= -1;
-        playerTransform.localScale = new Vector3(playerTransform.localScale.x, -playerTransform.localScale.y, playerTransform.localScale.z);
-    }
-
-
- 
 }

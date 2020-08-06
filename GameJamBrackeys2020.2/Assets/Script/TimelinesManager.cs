@@ -158,6 +158,8 @@ public class TimelinesManager : MonoBehaviour
     bool lDIsRewinding = false;
     public bool LDIsRewinding
     {
+        get => lDIsRewinding;
+
         set
         {
             if (lDIsRewinding != value)

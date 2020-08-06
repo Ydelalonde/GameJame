@@ -928,11 +928,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5735838234975400344, guid: d2960ab8a350f3a41a4458fd62145164,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 655021681143961120, guid: d2960ab8a350f3a41a4458fd62145164,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -1066,6 +1061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -109.398
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735838234975400344, guid: d2960ab8a350f3a41a4458fd62145164,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2960ab8a350f3a41a4458fd62145164, type: 3}
@@ -1226,21 +1226,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 15.09
-      objectReference: {fileID: 0}
     - target: {fileID: 4705270335350298123, guid: c0498232550d19547984e460882df33b,
         type: 3}
       propertyPath: m_FlipY
@@ -1255,6 +1240,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdaptiveModeThreshold
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 15.09
       objectReference: {fileID: 0}
     - target: {fileID: 310406397445748472, guid: c0498232550d19547984e460882df33b,
         type: 3}
@@ -1361,21 +1361,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 6.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 15.09
-      objectReference: {fileID: 0}
     - target: {fileID: 4705270335350298123, guid: c0498232550d19547984e460882df33b,
         type: 3}
       propertyPath: m_FlipY
@@ -1390,6 +1375,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AdaptiveModeThreshold
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 6.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498420466889844151, guid: c0498232550d19547984e460882df33b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 15.09
       objectReference: {fileID: 0}
     - target: {fileID: 310406397445748472, guid: c0498232550d19547984e460882df33b,
         type: 3}
@@ -3375,22 +3375,23 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1932007530748882593, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+    - target: {fileID: 3029043697390081298, guid: 1bcf7fcb19c400440b0df29a7c36e179,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.6699829
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6368223387427639932, guid: 1bcf7fcb19c400440b0df29a7c36e179,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3029043697390081298, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+    - target: {fileID: 1932007530748882593, guid: 1bcf7fcb19c400440b0df29a7c36e179,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_AnchoredPosition.y
+      value: 1.6699829
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7706007593455283978, guid: 1bcf7fcb19c400440b0df29a7c36e179, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1bcf7fcb19c400440b0df29a7c36e179, type: 3}
 --- !u!1 &3033135907341763400 stripped
 GameObject:

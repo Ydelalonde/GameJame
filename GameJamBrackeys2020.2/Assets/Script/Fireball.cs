@@ -44,6 +44,6 @@ public class Fireball : MonoBehaviour, ITriggerInTime
 
     void OnChangeRewind(bool isRewind)
     {
-        goingForward = !isRewind;
+        goingForward = !goingForward;
     }
 }

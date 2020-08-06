@@ -100,6 +100,7 @@ public class TimelinesManager : MonoBehaviour
             }
 
             currentState = value;
+
             if (currentState == PlayerState.E_DEAD)
             {
                 playerRemainingCoolDownForRewind = 0;
@@ -110,6 +111,11 @@ public class TimelinesManager : MonoBehaviour
                 PanelDeath.SetActive(true);
                 postProcessStandard.SetActive(false);
             }
+
+            if (currentState == PlayerState.E_RIGHT)
+                playerAnimator.SetBool("isMoving", true);
+            else
+                playerAnimator.SetBool("isMoving", false);
         }
     }
     [SerializeField] Transform player = null;
@@ -117,6 +123,7 @@ public class TimelinesManager : MonoBehaviour
     [SerializeField] float playerSpeed = 0f;
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
+    Animator playerAnimator = null;
     Vector2 playerVelocitySaved = Vector2.zero;
     float playerGravitySaved = 0f;
     [SerializeField] bool canStopRewind = true; /////////////////////////////////
@@ -141,8 +148,9 @@ public class TimelinesManager : MonoBehaviour
     [Header("LD Timeline")]
     [SerializeField] Slider lDSlider = null;
     [SerializeField] float lDLengthOfTimeline = 0;
+    public float LDLengthOfTimeline { get => lDLengthOfTimeline; }
     [SerializeField] float lDTimeOnTheTimeline = 0f; /////////////////////////////////
-
+    public float LDTimeOnTheTimeline { get => lDTimeOnTheTimeline; }
     [SerializeField] float lDRewindScale = 0f;
     [SerializeField] float lDCoolDownForRewind = 0f;
     float lDRemainingCoolDownForRewind = 0f;
@@ -201,9 +209,12 @@ public class TimelinesManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        
         //Player
         playerBoxCollider = player.GetComponent<BoxCollider2D>();
         playerRb = player.GetComponent<Rigidbody2D>();
+        playerAnimator = player.GetComponent<Animator>();
+        CurrentState = PlayerState.E_RIGHT;
 
         //LD
         for (int i = 0; i < lDObjectsToTrigger.Length; ++i)
@@ -322,7 +333,7 @@ public class TimelinesManager : MonoBehaviour
             {
                 if (playerTimeOnTheTimeline > playerTimeForTriggers[i])
                 {
-                    currentState = playerTriggers[i];
+                    CurrentState = playerTriggers[i];
                     playerNumberTriggersPassed++;
                 }
                 else

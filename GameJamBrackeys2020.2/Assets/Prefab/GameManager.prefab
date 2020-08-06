@@ -53,7 +53,10 @@ MonoBehaviour:
   postProcessStandard: {fileID: 0}
   postProcessPL: {fileID: 0}
   postProcessLD: {fileID: 0}
+  postProcessDeath: {fileID: 0}
+  PanelDeath: {fileID: 0}
   playerSlider: {fileID: 0}
+  playerLine: {fileID: 0}
   playerLengthOfTimeline: 0
   playerTimeOnTheTimeline: 0
   playerRewindScale: 0
@@ -62,6 +65,7 @@ MonoBehaviour:
   player: {fileID: 0}
   Blurr: {fileID: 0}
   playerSpeed: 0
+  canStopRewind: 1
   playerTriggers: 
   playerTimeForTriggers: []
   lDSlider: {fileID: 0}

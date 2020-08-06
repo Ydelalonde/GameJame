@@ -217,6 +217,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4676671666761324804}
     m_Modifications:
+    - target: {fileID: 3684909712783672762, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Panel_Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3684909712783672762, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3684909712783672757, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -295,22 +305,22 @@ PrefabInstance:
     - target: {fileID: 3684909712783672757, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.286
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3684909712783672757, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.106000006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3684909712783672757, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.71400005
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3684909712783672757, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.89800006
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3684909712783672757, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
@@ -322,21 +332,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3684909712783672762, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
+    - target: {fileID: 3684909712212370206, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
-      propertyPath: m_Name
-      value: Panel_Pause
+      propertyPath: m_fontSize
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 3684909712783672762, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
+    - target: {fileID: 6118206396605618944, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: 0.6299896
       objectReference: {fileID: 0}
-    - target: {fileID: 3684909711925850574, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
+    - target: {fileID: 4836178063832567029, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 47923331}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.6300049
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186669074005458191, guid: c3bb4a2b53428e14eb4aaa04ae2879a8,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3bb4a2b53428e14eb4aaa04ae2879a8, type: 3}
 --- !u!224 &1169279080 stripped
@@ -487,6 +502,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4676671666761324804}
     m_Modifications:
+    - target: {fileID: 4297882787486836762, guid: b466825243f714f4f820924104457e21,
+        type: 3}
+      propertyPath: m_Name
+      value: HUD_RewindDiego
+      objectReference: {fileID: 0}
     - target: {fileID: 4297882787486836761, guid: b466825243f714f4f820924104457e21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -591,11 +611,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297882787486836762, guid: b466825243f714f4f820924104457e21,
-        type: 3}
-      propertyPath: m_Name
-      value: HUD_RewindDiego
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b466825243f714f4f820924104457e21, type: 3}

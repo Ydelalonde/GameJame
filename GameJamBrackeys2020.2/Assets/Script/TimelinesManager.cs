@@ -56,6 +56,7 @@ public class TimelinesManager : MonoBehaviour
     #region Player
     [Header("Player Timeline")] 
     [SerializeField] Image playerSlider = null;
+    [SerializeField] LineRenderer playerLine = null;
     [SerializeField] float playerLengthOfTimeline = 0;
     [SerializeField] float playerTimeOnTheTimeline = 0f;/////////////////////////////////
     [SerializeField] float playerRewindScale = 0f;
@@ -397,6 +398,9 @@ public class TimelinesManager : MonoBehaviour
 
                     playerRb.velocity = velocitys[0];
                     velocitys.RemoveAt(0);
+
+
+                    playerLine.positionCount--;
                 }
         }
         else if (!lDIsRewinding)
@@ -406,6 +410,8 @@ public class TimelinesManager : MonoBehaviour
             {
                 positions.Insert(0, player.position);
                 velocitys.Insert(0, playerRb.velocity);
+                playerLine.positionCount++;
+                playerLine.SetPosition(playerLine.positionCount - 1, player.position);
             }
             //E_Right
             if (currentState == PlayerState.E_RIGHT)

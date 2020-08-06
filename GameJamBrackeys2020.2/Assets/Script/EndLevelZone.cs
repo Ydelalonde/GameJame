@@ -25,7 +25,7 @@ public class EndLevelZone : MonoBehaviour
         }
     }
 
-    public void LoadNextLevel()
+    void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

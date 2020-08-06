@@ -9,9 +9,11 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
     [SerializeField] GameObject Blurr = null;
     [SerializeField] Transform[] wayPoints = null;
     [SerializeField] float[] timeAtWayPoints = null;
+    TimelinesManager timelinesManager = null;
 
     bool isActive = false;
-    bool goingForward = true; 
+    bool goingForward = true;
+
     int currentDest = 0;
     Vector2 direction;
     float waitedTime = 0;
@@ -30,12 +32,32 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         return "MovingPlatform";
     }
 
+    void OnChangeRewind(bool isRewind)
+    {
+        goingForward = !isRewind;
+
+
+        if (!isActive)
+            return;
+
+        Blurr.SetActive(!goingForward);
+
+        //if in-Between
+        if (!ReachDestination())
+            GoToNextDestination();
+        //to wait the same time as already waited before going back
+        else if (!goingForward)
+            timeToWait = waitedTime * 2;
+        else if (currentDest == wayPoints.Length - 1) //if At End
+            waitedTime = timeToWait - waitedTime;
+    }
+
     void Start ()
     {
         if (startingMode)
             isActive = true;
 
-        TimelinesManager timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
+        timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
         timelinesManager.changeRewindDelegate += OnChangeRewind;
 
         GetDirection();
@@ -47,12 +69,13 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
             return;
         
         if (!ReachDestination())
+            transform.Translate(direction * speed * Time.deltaTime);
+        else if(timelinesManager.LDTimeOnTheTimeline < timelinesManager.LDLengthOfTimeline)
         {
-            Vector2 translation = direction * speed * Time.deltaTime;
-            transform.Translate(translation);
-        }
-        else
-        {
+            //if At End
+            if (goingForward && currentDest == wayPoints.Length - 1)
+                timeToWait += Time.deltaTime;
+
             if (waitedTime >= timeToWait)
             {
                 //check limits
@@ -60,7 +83,7 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
                     GoToNextDestination();
             }
             else
-                waitedTime += (goingForward)? Time.deltaTime : Time.deltaTime;
+                waitedTime +=  Time.deltaTime;
         }
 
     }
@@ -84,24 +107,5 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         GetDirection();
     }
 
-    void OnChangeRewind(bool isRewind)
-    {
-        goingForward = !goingForward;
 
-
-        if (!isActive)
-            return;
-
-        Blurr.SetActive(!goingForward);
-
-        //if in-Between
-        if (!ReachDestination())
-            GoToNextDestination();
-
-        //to wait the same time as already waited before going back
-        if (!goingForward)
-            timeToWait = waitedTime * 2;
-        
-
-    }
 }

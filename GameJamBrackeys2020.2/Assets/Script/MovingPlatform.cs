@@ -65,7 +65,7 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
 
     void Update()
     {
-        if (!isActive)
+        if (!isActive || timelinesManager.PlayerIsRewinding)
             return;
         
         if (!ReachDestination())

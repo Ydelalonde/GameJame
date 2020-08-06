@@ -96,6 +96,7 @@ public class TimelinesManager : MonoBehaviour
             {
                 playerRb.isKinematic = false;
 
+                Time.timeScale = 0;
                 postProcessDeath.SetActive(false);
                 PanelDeath.SetActive(false);
             }
@@ -176,14 +177,16 @@ public class TimelinesManager : MonoBehaviour
                     //block Player in the air if LDIsRewinding
                     playerVelocitySaved = playerRb.velocity;
                     playerRb.velocity = Vector2.zero;
-                    playerGravitySaved = playerRb.gravityScale;
-                    playerRb.gravityScale = 0;
+                    playerRb.isKinematic = true;
+                    //playerGravitySaved = playerRb.gravityScale;
+                    //playerRb.gravityScale = 0;
                 }
                 else
                 {
                     //Unblock Player in the air if LDIsRewinding
                     playerRb.velocity = playerVelocitySaved;
-                    playerRb.gravityScale = playerGravitySaved;
+                    playerRb.isKinematic = false;
+                    //playerRb.gravityScale = playerGravitySaved;
 
                     if (!playerIsRewinding)
                     {

@@ -65,6 +65,8 @@ public class TimelinesManager : MonoBehaviour
     bool playerIsRewinding = false;
     public bool PlayerIsRewinding
     {
+        get => playerIsRewinding;
+
         set
         {
             if(playerIsRewinding != value)
@@ -72,7 +74,6 @@ public class TimelinesManager : MonoBehaviour
                 playerIsRewinding = value;
                 playerBoxCollider.isTrigger = value;
 
-                Time.timeScale = (playerIsRewinding) ? 0 : 1;
                 Blurr.SetActive(playerIsRewinding);
 
                 postProcessPL.SetActive(playerIsRewinding);
@@ -311,8 +312,11 @@ public class TimelinesManager : MonoBehaviour
 
 
         //LD
-        lDTimeOnTheTimeline += (lDIsRewinding) ? -Time.deltaTime : Time.deltaTime;
-        lDTimeOnTheTimeline = Mathf.Clamp(lDTimeOnTheTimeline, 0, lDLengthOfTimeline);
+        if (!playerIsRewinding)
+        {
+            lDTimeOnTheTimeline += (lDIsRewinding) ? -Time.deltaTime : Time.deltaTime;
+            lDTimeOnTheTimeline = Mathf.Clamp(lDTimeOnTheTimeline, 0, lDLengthOfTimeline);
+        }
     }
 
     void UpdateSliders()

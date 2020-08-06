@@ -26,6 +26,9 @@ public class BabyFireball : MonoBehaviour
 
     void Update()
     {
+        if (timelinesManager.PlayerIsRewinding)
+            return;
+
         Vector3 translation = Vector3.up * speed * Time.deltaTime;
 
         if (!goingForward)

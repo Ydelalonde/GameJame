@@ -14,6 +14,39 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-5143137543271209387
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tohigh
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: eef6ea3ca6b537541a1228c81d168281
+  m_Children: []
+  m_Volume: 58d3fef4a8668f74e8e671fa6ea1e1eb
+  m_Pitch: 07e8feb5989489d47b9b8801d153304a
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -508786054740871356}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-508786054740871356
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7fd4bfe1392f26f43b946a8248ec88a2
+  m_EffectName: Attenuation
+  m_MixLevel: 35e24b30956a4834299863434225c2b9
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-36929542925799235
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -54,6 +87,7 @@ AudioMixerController:
     - e8102ee0b59cc3d47a0a0a95ae2a0280
     - 9fa8231734063824a93ba2ce02ea42e8
     - 32ea68f93df03d2438f3650387c3e805
+    - eef6ea3ca6b537541a1228c81d168281
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -69,6 +103,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: -36929542925799235}
   - {fileID: 8233706935821060925}
+  - {fileID: -5143137543271209387}
   m_Volume: acfd9f288c46a4e46bdda4d342376c0b
   m_Pitch: a4bcaa15d59cb53418dc0544263b0d6a
   m_Send: 00000000000000000000000000000000
@@ -102,6 +137,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 8d52ba6641f698a4bb73953149597985
   m_FloatValues:
+    58d3fef4a8668f74e8e671fa6ea1e1eb: -41.52018
     acfd9f288c46a4e46bdda4d342376c0b: -0.9465445
     58b65aba165a1e142b0f64eebfd3510a: -0.54210335
     88fb2fec13462da4fa1c53903e69bab0: -30.320126

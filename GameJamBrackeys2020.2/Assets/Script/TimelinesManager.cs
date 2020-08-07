@@ -129,6 +129,7 @@ public class TimelinesManager : MonoBehaviour
     Rigidbody2D playerRb = null;
     Animator playerAnimator = null;
     Vector2 playerVelocitySaved = Vector2.zero;
+    float playerGravitySaved = 0;
 
     List<Vector3> positions = new List<Vector3>();
     List<Vector2> velocitys = new List<Vector2>();
@@ -173,13 +174,15 @@ public class TimelinesManager : MonoBehaviour
                     //block Player in the air if LDIsRewinding
                     playerVelocitySaved = playerRb.velocity;
                     playerRb.velocity = Vector2.zero;
-                    playerRb.isKinematic = true;
+                    playerGravitySaved = playerRb.gravityScale;
+                    playerRb.gravityScale = 0;
                 }
                 else
                 {
                     //Unblock Player in the air if LDIsRewinding
                     playerRb.velocity = playerVelocitySaved;
-                    playerRb.isKinematic = false;
+                    if (playerRb.gravityScale == 0)
+                        playerRb.gravityScale = playerGravitySaved;
                     
                     if (!playerIsRewinding)
                         postProcessStandard.SetActive(true);

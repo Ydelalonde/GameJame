@@ -72,7 +72,9 @@ public class TimelinesManager : MonoBehaviour
             if(playerIsRewinding != value)
             {
                 playerIsRewinding = value;
-                playerBoxCollider.isTrigger = value;
+
+                playerRb.simulated = !value;
+                playerBoxCollider.enabled = !value;
 
                 Blurr.SetActive(playerIsRewinding);
 
@@ -95,8 +97,8 @@ public class TimelinesManager : MonoBehaviour
             if (currentState == PlayerState.E_DEAD)
             {
                 playerRb.isKinematic = false;
+                Time.timeScale = 1;
 
-                Time.timeScale = 0;
                 postProcessDeath.SetActive(false);
                 PanelDeath.SetActive(false);
             }
@@ -106,8 +108,8 @@ public class TimelinesManager : MonoBehaviour
             if (currentState == PlayerState.E_DEAD)
             {
                 playerRemainingCoolDownForRewind = 0;
-                Time.timeScale = 0;
                 playerRb.isKinematic = true;
+                Time.timeScale = 0;
 
                 postProcessDeath.SetActive(true);
                 PanelDeath.SetActive(true);
@@ -127,12 +129,6 @@ public class TimelinesManager : MonoBehaviour
     Rigidbody2D playerRb = null;
     Animator playerAnimator = null;
     Vector2 playerVelocitySaved = Vector2.zero;
-    float playerGravitySaved = 0f;
-    [SerializeField] bool canStopRewind = true; /////////////////////////////////
-    public bool CanStopRewind
-    {
-        set => canStopRewind = value;
-    }
 
     List<Vector3> positions = new List<Vector3>();
     List<Vector2> velocitys = new List<Vector2>();
@@ -178,21 +174,15 @@ public class TimelinesManager : MonoBehaviour
                     playerVelocitySaved = playerRb.velocity;
                     playerRb.velocity = Vector2.zero;
                     playerRb.isKinematic = true;
-                    //playerGravitySaved = playerRb.gravityScale;
-                    //playerRb.gravityScale = 0;
                 }
                 else
                 {
                     //Unblock Player in the air if LDIsRewinding
                     playerRb.velocity = playerVelocitySaved;
                     playerRb.isKinematic = false;
-                    //playerRb.gravityScale = playerGravitySaved;
-
+                    
                     if (!playerIsRewinding)
-                    {
-                        Time.timeScale = 1;
                         postProcessStandard.SetActive(true);
-                    }
                 }
             }
         }
@@ -270,6 +260,10 @@ public class TimelinesManager : MonoBehaviour
         lDRemainingCoolDownForRewind -= Time.deltaTime;
 
         CheckInput();
+
+        if (currentState == PlayerState.E_DEAD)
+            return;
+
         UpdateTimeline();
         UpdateSliders();
 
@@ -285,7 +279,7 @@ public class TimelinesManager : MonoBehaviour
         //Player
         if (Input.GetKey(KeyCode.A) && playerRemainingCoolDownForRewind <= 0)
             PlayerIsRewinding = true;
-        else if (playerIsRewinding && canStopRewind)
+        else if (playerIsRewinding)
         {
             playerRemainingCoolDownForRewind = playerCoolDownForRewind;
             PlayerIsRewinding = false;

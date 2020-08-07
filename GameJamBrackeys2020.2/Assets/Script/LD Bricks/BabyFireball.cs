@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class BabyFireball : MonoBehaviour
 {
+
+    [SerializeField] AudioClip SFX_Impact = null;
+    [SerializeField] AudioClip SFX_Destruction = null;
+    
+    AudioSource audioSource = null;
+
     bool goingForward = true;
     float speed = 0f;
     public float Speed
@@ -12,8 +18,16 @@ public class BabyFireball : MonoBehaviour
     }
     TimelinesManager timelinesManager = null;
 
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.GetComponent<Wood>() != null)
+            audioSource.PlayOneShot(SFX_Destruction);
+        else
+            audioSource.PlayOneShot(SFX_Impact);
+
         if (!collision.gameObject.CompareTag("Player") && goingForward)
             timelinesManager.AddTemporaryObjectsToReactivate(gameObject);
     }
@@ -22,6 +36,7 @@ public class BabyFireball : MonoBehaviour
     {
         timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
         timelinesManager.changeRewindDelegate += OnChangeRewind;
+        audioSource = gameObject.GetComponentInParent<AudioSource>();
     }
 
     void Update()

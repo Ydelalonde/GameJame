@@ -92,7 +92,7 @@ ScriptedImporter:
     border: {x: 100, y: 72, z: 71, w: 100}
     rect:
       serializedVersion: 2
-      x: 6
+      x: 1038
       y: 1821
       width: 1013
       height: 335
@@ -106,7 +106,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 1472}
+    uvTransform: {x: 1036, y: 1472}
   - name: "FB_C\xF4ne"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -158,7 +158,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 690
+      x: 1376
       y: 2175
       width: 530
       height: 514
@@ -172,7 +172,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 446, y: 2175}
+    uvTransform: {x: 1132, y: 2175}
   - name: Bumper_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -202,8 +202,8 @@ ScriptedImporter:
     border: {x: 80, y: 0, z: 80, w: 0}
     rect:
       serializedVersion: 2
-      x: 2063
-      y: 131
+      x: 0
+      y: 1820
       width: 1025
       height: 335
     spriteID: c152aa2b510d430408c1ea5398dc70d6
@@ -216,7 +216,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2067, y: -217}
+    uvTransform: {x: 4, y: 1472}
   - name: DeadZone
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -290,7 +290,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 690
       y: 2175
       width: 678
       height: 644
@@ -304,7 +304,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -169, y: 1985}
+    uvTransform: {x: 517, y: 1985}
   - name: HUD_Circle copie
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -400,7 +400,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1228
+      x: 1914
       y: 2175
       width: 430
       height: 518
@@ -414,7 +414,51 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 908, y: 1928}
+    uvTransform: {x: 1594, y: 1928}
+  - name: WoodPlatform
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2067
+      y: 4
+      width: 1024
+      height: 474
+    spriteID: 24f7d669f8b8d23418b328a304904c0d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2067, y: -217}
+  - name: FB_Child
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2175
+      width: 678
+      height: 644
+    spriteID: 377a64a848a6b294d9604cb41df68984
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -169, y: 1985}
   rigSpriteImportData:
   - name: Fireball
     originalName: 
@@ -474,13 +518,27 @@ ScriptedImporter:
   resliceFromLayer: 0
   characterMode: 0
   mosaicPSDLayers:
+  - name: FB_Child
+    spriteName: FB_Child
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 377a64a848a6b294d9604cb41df68984
+    layerID: 56
+    mosaicPosition: {x: 4, y: 2175}
+  - name: WoodPlatform
+    spriteName: WoodPlatform
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 24f7d669f8b8d23418b328a304904c0d
+    layerID: 52
+    mosaicPosition: {x: 2067, y: 4}
   - name: Pause
     spriteName: Pause
     isGroup: 0
     parentIndex: -1
     spriteID: 83802debbd868ac42b3e8b941a0a82bf
     layerID: 50
-    mosaicPosition: {x: 1228, y: 2175}
+    mosaicPosition: {x: 1914, y: 2175}
   - name: Heart
     spriteName: Heart
     isGroup: 0
@@ -508,7 +566,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: ed052b57bc3c5db4e8188ea8c88a272c
     layerID: 43
-    mosaicPosition: {x: 4, y: 2175}
+    mosaicPosition: {x: 690, y: 2175}
   - name: HUD_Circle copie
     spriteName: HUD_Circle copie
     isGroup: 0
@@ -543,7 +601,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 7ef3bcf9a9ae9a54e95ecba2eb5ab104
     layerID: 16
-    mosaicPosition: {x: 690, y: 2175}
+    mosaicPosition: {x: 1376, y: 2175}
   - name: Bumper_2
     spriteName: Bumper_2
     isGroup: 0
@@ -571,14 +629,14 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: c152aa2b510d430408c1ea5398dc70d6
     layerID: 32
-    mosaicPosition: {x: 2067, y: 4}
+    mosaicPosition: {x: 4, y: 1693}
   - name: Platform
     spriteName: Platform
     isGroup: 0
     parentIndex: -1
     spriteID: 827af2ad93f0aa74eac7988448d47e4b
     layerID: 3
-    mosaicPosition: {x: 4, y: 1693}
+    mosaicPosition: {x: 1036, y: 1693}
   rigPSDLayers:
   - name: Fireball
     spriteName: Fireball

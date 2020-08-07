@@ -1932,131 +1932,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: objectToTrigger.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeForTrigger.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: LDSlider
-      value: 
-      objectReference: {fileID: 926602833}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lengthOfTimeline
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeForTrigger.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: objectToTrigger.Array.data[0]
-      value: 
-      objectReference: {fileID: 1811552074}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: objectToTrigger.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeForTrigger.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: rewindScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: objectToTrigger.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeForTrigger.Array.data[2]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: coolDownForRewind
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: objectToTrigger.Array.data[3]
-      value: 
-      objectReference: {fileID: 1512222969}
-    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeForTrigger.Array.data[3]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: states.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeAtStates.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerSlider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeAtStates.Array.data[0]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: timeScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: states.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: rewindScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: coolDownForRewind
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: lDObjectsToTrigger.Array.size
@@ -2225,6 +2100,131 @@ PrefabInstance:
       propertyPath: playerLine
       value: 
       objectReference: {fileID: 1524818081}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: objectToTrigger.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeForTrigger.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: LDSlider
+      value: 
+      objectReference: {fileID: 926602833}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lengthOfTimeline
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeForTrigger.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: objectToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 1811552074}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: objectToTrigger.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeForTrigger.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: rewindScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: objectToTrigger.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeForTrigger.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: coolDownForRewind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: objectToTrigger.Array.data[3]
+      value: 
+      objectReference: {fileID: 1512222969}
+    - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeForTrigger.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: states.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeAtStates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeAtStates.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: timeScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: states.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: rewindScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406735317949200311, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: coolDownForRewind
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448bcde1f6d12045a0d11efd5bda6bf, type: 3}
 --- !u!4 &1502974267 stripped
@@ -3382,7 +3382,7 @@ PrefabInstance:
     - target: {fileID: 1932007530748882593, guid: 1bcf7fcb19c400440b0df29a7c36e179,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.6699982
+      value: 1.6699829
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bcf7fcb19c400440b0df29a7c36e179, type: 3}

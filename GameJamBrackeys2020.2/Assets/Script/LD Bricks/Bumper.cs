@@ -25,7 +25,7 @@ public class Bumper : MonoBehaviour
             if (playerRb == null)
                 playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
 
-            playerRb.velocity += new Vector2(transform.up.x, transform.up.y) * jumpThrust;
+            playerRb.velocity = new Vector2(playerRb.velocity.x, jumpThrust);
 
             anim.SetTrigger("isTriggered");
             sound.Play();

@@ -1100,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 8259534740768038050, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8259534740768038076, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
@@ -2588,7 +2588,7 @@ PrefabInstance:
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: lDTimeForTriggers.Array.data[2]
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}

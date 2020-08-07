@@ -11,6 +11,7 @@ public class Fireball : MonoBehaviour, ITriggerInTime
     [SerializeField] GameObject Blurr = null;
     [SerializeField] float speedForChilds = 0f;
     [SerializeField] GameObject[] babyFireballs = null;
+    Animator anim = null;
 
 
     private void Start()
@@ -18,7 +19,9 @@ public class Fireball : MonoBehaviour, ITriggerInTime
         for (int i = 0; i < babyFireballs.Length; ++i)
             babyFireballs[i].GetComponent<BabyFireball>().Speed = speedForChilds;
 
-        GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>().changeRewindDelegate += OnChangeRewind;
+        anim = gameObject.GetComponent<Animator>();
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>().changeLDRewindDelegate += OnChangeLDRewind;
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>().changePlayerRewindDelegate += OnChangePlayerRewind;
     }
 
     private void Update()
@@ -34,6 +37,9 @@ public class Fireball : MonoBehaviour, ITriggerInTime
     {
         hasSpawnChilds = !hasSpawnChilds;
 
+        if (hasSpawnChilds)
+            anim.SetTrigger("fire");
+
         for (int i = 0; i < babyFireballs.Length; ++i)
             babyFireballs[i].SetActive(hasSpawnChilds);
     }
@@ -43,8 +49,13 @@ public class Fireball : MonoBehaviour, ITriggerInTime
         return "Fireball";
     }
 
-    void OnChangeRewind(bool isRewind)
+    void OnChangeLDRewind(bool Rewind)
     {
         goingForward = !goingForward;
+    }
+
+    void OnChangePlayerRewind(bool Rewind)
+    {
+        anim.SetBool("isPlayerRewinding", Rewind);
     }
 }

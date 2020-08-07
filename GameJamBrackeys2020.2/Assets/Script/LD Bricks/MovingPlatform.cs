@@ -32,9 +32,9 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
         return "MovingPlatform";
     }
 
-    void OnChangeRewind(bool isRewind)
+    void OnChangeLDRewind(bool rewind)
     {
-        goingForward = !isRewind;
+        goingForward = !goingForward;
 
 
         if (!isActive)
@@ -58,7 +58,7 @@ public class MovingPlatform : MonoBehaviour,ITriggerInTime
             isActive = true;
 
         timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
-        timelinesManager.changeRewindDelegate += OnChangeRewind;
+        timelinesManager.changeLDRewindDelegate += OnChangeLDRewind;
 
         GetDirection();
     }

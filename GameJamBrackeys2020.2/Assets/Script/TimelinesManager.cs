@@ -11,6 +11,10 @@ public enum PlayerState
 }
 public class TimelinesManager : MonoBehaviour
 {
+    public delegate void OnChangeRewind(bool value);
+    public event OnChangeRewind changePlayerRewindDelegate;
+    public event OnChangeRewind changeLDRewindDelegate;
+
     #region LevelState
     bool isLevelFinished = false;
     bool isLevelPaused = false;
@@ -72,6 +76,7 @@ public class TimelinesManager : MonoBehaviour
             if(playerIsRewinding != value)
             {
                 playerIsRewinding = value;
+                changePlayerRewindDelegate?.Invoke(playerIsRewinding);
 
                 playerRb.simulated = !value;
                 playerBoxCollider.enabled = !value;
@@ -138,9 +143,6 @@ public class TimelinesManager : MonoBehaviour
     [SerializeField] PlayerState[] playerTriggers = null;
     [SerializeField] float[] playerTimeForTriggers = null;
     int playerNumberTriggersPassed = 0;
-
-
-
     #endregion
 
     #region LD
@@ -163,7 +165,8 @@ public class TimelinesManager : MonoBehaviour
             if (lDIsRewinding != value)
             {
                 lDIsRewinding = value;
-                changeRewindDelegate?.Invoke(lDIsRewinding);
+                changeLDRewindDelegate?.Invoke(lDIsRewinding);
+                playerAnimator.SetBool("isLDRewinding", lDIsRewinding);
                 postProcessLD.SetActive(lDIsRewinding);
 
                 if(lDIsRewinding)
@@ -179,13 +182,17 @@ public class TimelinesManager : MonoBehaviour
                 }
                 else
                 {
+
+                    if (!playerIsRewinding)
+                        postProcessStandard.SetActive(true);
+                    Time.timeScale = 1;
+
                     //Unblock Player in the air if LDIsRewinding
                     playerRb.velocity = playerVelocitySaved;
                     if (playerRb.gravityScale == 0)
                         playerRb.gravityScale = playerGravitySaved;
                     
-                    if (!playerIsRewinding)
-                        postProcessStandard.SetActive(true);
+                    
                 }
             }
         }
@@ -198,10 +205,6 @@ public class TimelinesManager : MonoBehaviour
 
     List<GameObject> lDTemporaryObjectsToReactivate = new List<GameObject>();
     List<float> lDTimeForObjectsToReactivate = new List<float>();
-
-    public delegate void OnChangeRewind(bool value);
-    public event OnChangeRewind changeRewindDelegate;
-
     #endregion
 
     // Start is called before the first frame update
@@ -229,7 +232,7 @@ public class TimelinesManager : MonoBehaviour
         {
             GameObject gameObjectToInstantiate = GetWhichGameObjectInstantiate(lDTriggers[i].GetName());
 
-            Instantiate(gameObjectToInstantiate, startingPosition + Vector3.right * (lDTimeForTriggers[i] * sliderRatioXPerS), Quaternion.identity, canvas.transform);
+            Instantiate(gameObjectToInstantiate, startingPosition + Vector3.right * (lDTimeForTriggers[i] * sliderRatioXPerS), Quaternion.identity, lDSlider.transform);
         }
 
     }
@@ -464,5 +467,6 @@ public class TimelinesManager : MonoBehaviour
         isLevelFinished = true;
         Time.timeScale = 0;
     }
+
 
 }

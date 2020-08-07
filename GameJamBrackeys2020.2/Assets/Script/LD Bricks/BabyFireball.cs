@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BabyFireball : MonoBehaviour
 {
 
     [SerializeField] AudioClip SFX_Impact = null;
     [SerializeField] AudioClip SFX_Destruction = null;
-    
+
+    [SerializeField] AudioMixerGroup sound = null;
+    [SerializeField] AudioMixerGroup toHigh = null;
+
     AudioSource audioSource = null;
 
     bool goingForward = true;
@@ -24,9 +28,15 @@ public class BabyFireball : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Wood>() != null)
+        {
+            audioSource.outputAudioMixerGroup = toHigh;
             audioSource.PlayOneShot(SFX_Destruction);
+        }
         else
+        {
+            audioSource.outputAudioMixerGroup = sound;
             audioSource.PlayOneShot(SFX_Impact);
+        }
 
         if (!collision.gameObject.CompareTag("Player") && goingForward)
             timelinesManager.AddTemporaryObjectsToReactivate(gameObject);

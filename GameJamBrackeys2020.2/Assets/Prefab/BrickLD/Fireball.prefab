@@ -246,6 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX_Impact: {fileID: 8300000, guid: 47633cbadb91d904693bbc2668365316, type: 3}
   SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
+  sound: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
+  toHigh: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
 --- !u!114 &6178824312167001717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX_Impact: {fileID: 8300000, guid: 47633cbadb91d904693bbc2668365316, type: 3}
   SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
+  sound: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
+  toHigh: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
 --- !u!114 &6461278175963475823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,6 +759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX_Impact: {fileID: 8300000, guid: 47633cbadb91d904693bbc2668365316, type: 3}
   SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
+  sound: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
+  toHigh: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
 --- !u!114 &1960320656020805476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,6 +1501,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3544058255619316196, guid: d789703a3349db94fb73cdbe45d97d25,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019,
+        type: 2}
+    - target: {fileID: 3544058255619316196, guid: d789703a3349db94fb73cdbe45d97d25,
+        type: 3}
+      propertyPath: toHigh
+      value: 
+      objectReference: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d789703a3349db94fb73cdbe45d97d25, type: 3}
 --- !u!4 &2628482584463043068 stripped

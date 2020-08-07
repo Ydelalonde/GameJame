@@ -32,9 +32,4 @@ public class Bumper : MonoBehaviour
         }
     }
 
-    /*
-    void OnChangeRewind(bool isRewind)
-    {
-        anim.SetBool("isReversed", isRewind);
-    }*/
 }

@@ -12,6 +12,8 @@ public class BabyFireball : MonoBehaviour
     [SerializeField] AudioMixerGroup sound = null;
     [SerializeField] AudioMixerGroup toHigh = null;
 
+    [SerializeField] GameObject prefabParticleSystem = null;
+
     AudioSource audioSource = null;
 
     bool goingForward = true;
@@ -20,6 +22,7 @@ public class BabyFireball : MonoBehaviour
     {
         set => speed = value;
     }
+    Animator anim = null;
     TimelinesManager timelinesManager = null;
 
 
@@ -39,14 +42,19 @@ public class BabyFireball : MonoBehaviour
         }
 
         if (!collision.gameObject.CompareTag("Player") && goingForward)
+        {
+            Instantiate(prefabParticleSystem, transform.position, Quaternion.identity);
             timelinesManager.AddTemporaryObjectsToReactivate(gameObject);
+        }
     }
 
     void Start()
     {
-        timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
-        timelinesManager.changeRewindDelegate += OnChangeRewind;
+        anim = gameObject.GetComponent<Animator>();
         audioSource = gameObject.GetComponentInParent<AudioSource>();
+        timelinesManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TimelinesManager>();
+        timelinesManager.changeLDRewindDelegate += OnChangeLDRewind;
+        timelinesManager.changePlayerRewindDelegate += OnChangePlayerRewind;
     }
 
     void Update()
@@ -62,8 +70,13 @@ public class BabyFireball : MonoBehaviour
         transform.Translate(translation);
     }
 
-    void OnChangeRewind(bool isRewind)
+    void OnChangeLDRewind(bool Rewind)
     {
-        goingForward = !isRewind;
+        goingForward = !goingForward;
+    }
+
+    void OnChangePlayerRewind(bool Rewind)
+    {
+        anim.SetBool("isPlayerRewinding", Rewind);
     }
 }

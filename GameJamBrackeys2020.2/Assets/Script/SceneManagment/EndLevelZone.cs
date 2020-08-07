@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndLevelZone : MonoBehaviour
 {
+    [SerializeField] Animator animPauseMenu = null;
     TimelinesManager timelinesManager = null;
     Animator anim = null;
 
@@ -25,8 +26,8 @@ public class EndLevelZone : MonoBehaviour
         }
     }
 
-    void LoadNextLevel()
+    void StartAnimLoadingNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        animPauseMenu.SetTrigger("LoadingNextLevel");
     }
 }

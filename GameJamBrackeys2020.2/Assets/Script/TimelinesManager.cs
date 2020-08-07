@@ -133,6 +133,7 @@ public class TimelinesManager : MonoBehaviour
     BoxCollider2D playerBoxCollider = null;
     Rigidbody2D playerRb = null;
     Animator playerAnimator = null;
+    AudioSource playerAudioSource = null;
     Vector2 playerVelocitySaved = Vector2.zero;
     float playerGravitySaved = 0;
 
@@ -216,6 +217,7 @@ public class TimelinesManager : MonoBehaviour
         playerBoxCollider = player.GetComponent<BoxCollider2D>();
         playerRb = player.GetComponent<Rigidbody2D>();
         playerAnimator = player.GetComponent<Animator>();
+        playerAudioSource = player.GetComponent<AudioSource>();
         CurrentState = PlayerState.E_RIGHT;
 
         //LD

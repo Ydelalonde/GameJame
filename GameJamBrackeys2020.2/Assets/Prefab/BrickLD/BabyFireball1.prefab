@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d0619cb91a9f48aebc3965766e524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SFX_Impact: {fileID: 8300000, guid: 47633cbadb91d904693bbc2668365316, type: 3}
+  SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
 --- !u!114 &1103065740162184840
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour, ITriggerInTime
     bool hasSpawnChilds = false;
     bool goingForward = true;
 
+
     [SerializeField] GameObject Blurr = null;
     [SerializeField] float speedForChilds = 0f;
     [SerializeField] GameObject[] babyFireballs = null;

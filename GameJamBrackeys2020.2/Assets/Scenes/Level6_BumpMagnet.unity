@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 8330268503119733861, guid: 9758d02c1dec9cb42b7f5f8669ea07fb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.49
+      value: 7.66
       objectReference: {fileID: 0}
     - target: {fileID: 8330268503119733861, guid: 9758d02c1dec9cb42b7f5f8669ea07fb,
         type: 3}
@@ -696,7 +696,7 @@ PrefabInstance:
     - target: {fileID: 7453143288219506397, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.65
+      value: 6.57
       objectReference: {fileID: 0}
     - target: {fileID: 960503234444382215, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
@@ -811,7 +811,7 @@ PrefabInstance:
     - target: {fileID: 8417928251234736393, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7539550700289684889, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
@@ -898,15 +898,15 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.6316387
       objectReference: {fileID: 0}
-    - target: {fileID: 1124185353895251514, guid: a4956f728d4cbc7478ff41c305a1d51f,
-        type: 3}
-      propertyPath: m_Name
-      value: M_Platform_BotLeft
-      objectReference: {fileID: 0}
     - target: {fileID: 6708468289870247474, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
       propertyPath: m_Icon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124185353895251514, guid: a4956f728d4cbc7478ff41c305a1d51f,
+        type: 3}
+      propertyPath: m_Name
+      value: M_Platform_BotLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4956f728d4cbc7478ff41c305a1d51f, type: 3}
@@ -1450,6 +1450,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -109.398
       objectReference: {fileID: 0}
+    - target: {fileID: 432257248723114347, guid: d2960ab8a350f3a41a4458fd62145164,
+        type: 3}
+      propertyPath: animPauseMenu
+      value: 
+      objectReference: {fileID: 3033135907341763405}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2960ab8a350f3a41a4458fd62145164, type: 3}
 --- !u!1001 &1198672385
@@ -1612,12 +1617,12 @@ PrefabInstance:
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.9318184
+      value: 1.9274821
       objectReference: {fileID: 0}
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53854245
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
@@ -1637,12 +1642,12 @@ PrefabInstance:
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.35220724
+      value: 0.25604764
       objectReference: {fileID: 0}
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.935922
+      value: 0.9666642
       objectReference: {fileID: 0}
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
@@ -1662,7 +1667,7 @@ PrefabInstance:
     - target: {fileID: 6802819390467692319, guid: 52355dd265d66cc4c82facbee433a702,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 41.245003
+      value: 29.671001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52355dd265d66cc4c82facbee433a702, type: 3}
@@ -1890,6 +1895,209 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerTriggers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerTimeForTriggers.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: postProcessStandard
+      value: 
+      objectReference: {fileID: 3033135907341763402}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: postProcessPL
+      value: 
+      objectReference: {fileID: 3033135907341763401}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: postProcessLD
+      value: 
+      objectReference: {fileID: 3033135907341763400}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDSlider
+      value: 
+      objectReference: {fileID: 926602833}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerSlider
+      value: 
+      objectReference: {fileID: 1324184175}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerRewindScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerLengthOfTimeline
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDCoolDownForRewind
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDRewindScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDLengthOfTimeline
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[0]
+      value: 
+      objectReference: {fileID: 1811552074}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[1]
+      value: 
+      objectReference: {fileID: 755144622}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[2]
+      value: 
+      objectReference: {fileID: 678814616}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[0]
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[2]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerTriggers.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1524818079}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: Blurr
+      value: 
+      objectReference: {fileID: 1524818080}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerCoolDownForRewind
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 47923329}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: logoFireball
+      value: 
+      objectReference: {fileID: 8998408245569729130, guid: c19f12c9bebc2ca469cb6fe9197df4d6,
+        type: 3}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: logoMagnet
+      value: 
+      objectReference: {fileID: 7586985996373551810, guid: 2270b0f256acd274eb3cd4fbb109fcb5,
+        type: 3}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: logoMovingPlatform
+      value: 
+      objectReference: {fileID: 3097749643323945537, guid: 6aecf5ac8b20ea148bc6b0ee2a76f4b4,
+        type: 3}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[3]
+      value: 
+      objectReference: {fileID: 678814616}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: PanelDeath
+      value: 
+      objectReference: {fileID: 3033135907341763403}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: postProcessDeath
+      value: 
+      objectReference: {fileID: 3033135907341763404}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[3]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[4]
+      value: 
+      objectReference: {fileID: 1811552074}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[5]
+      value: 
+      objectReference: {fileID: 755144622}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDObjectsToTrigger.Array.data[6]
+      value: 
+      objectReference: {fileID: 1900267479}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[4]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[5]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: lDTimeForTriggers.Array.data[6]
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
+        type: 3}
+      propertyPath: playerLine
+      value: 
+      objectReference: {fileID: 1524818081}
     - target: {fileID: 1440359354521545100, guid: d448bcde1f6d12045a0d11efd5bda6bf,
         type: 3}
       propertyPath: objectToTrigger.Array.size
@@ -2015,209 +2223,6 @@ PrefabInstance:
       propertyPath: coolDownForRewind
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerTriggers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerTimeForTriggers.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: postProcessStandard
-      value: 
-      objectReference: {fileID: 3033135907341763402}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: postProcessPL
-      value: 
-      objectReference: {fileID: 3033135907341763401}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: postProcessLD
-      value: 
-      objectReference: {fileID: 3033135907341763400}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDSlider
-      value: 
-      objectReference: {fileID: 926602833}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerSlider
-      value: 
-      objectReference: {fileID: 1324184175}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerRewindScale
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerLengthOfTimeline
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerSpeed
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDCoolDownForRewind
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDRewindScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDLengthOfTimeline
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[0]
-      value: 
-      objectReference: {fileID: 1811552074}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[1]
-      value: 
-      objectReference: {fileID: 755144622}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[2]
-      value: 
-      objectReference: {fileID: 678814616}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[0]
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[2]
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerTriggers.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1524818079}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: Blurr
-      value: 
-      objectReference: {fileID: 1524818080}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerCoolDownForRewind
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 47923329}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: logoFireball
-      value: 
-      objectReference: {fileID: 8998408245569729130, guid: c19f12c9bebc2ca469cb6fe9197df4d6,
-        type: 3}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: logoMagnet
-      value: 
-      objectReference: {fileID: 7586985996373551810, guid: 2270b0f256acd274eb3cd4fbb109fcb5,
-        type: 3}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: logoMovingPlatform
-      value: 
-      objectReference: {fileID: 3097749643323945537, guid: 6aecf5ac8b20ea148bc6b0ee2a76f4b4,
-        type: 3}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[3]
-      value: 
-      objectReference: {fileID: 678814616}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: PanelDeath
-      value: 
-      objectReference: {fileID: 3033135907341763403}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: postProcessDeath
-      value: 
-      objectReference: {fileID: 3033135907341763404}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[3]
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[4]
-      value: 
-      objectReference: {fileID: 1811552074}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[5]
-      value: 
-      objectReference: {fileID: 755144622}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDObjectsToTrigger.Array.data[6]
-      value: 
-      objectReference: {fileID: 1900267479}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[4]
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[5]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: lDTimeForTriggers.Array.data[6]
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896651959501601941, guid: d448bcde1f6d12045a0d11efd5bda6bf,
-        type: 3}
-      propertyPath: playerLine
-      value: 
-      objectReference: {fileID: 1524818081}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d448bcde1f6d12045a0d11efd5bda6bf, type: 3}
 --- !u!4 &1502974267 stripped
@@ -2722,17 +2727,17 @@ PrefabInstance:
     - target: {fileID: 8259534740768038050, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8259534740768038076, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17
+      value: -0.208
       objectReference: {fileID: 0}
     - target: {fileID: 8259534740768038076, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.121
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8259534740768038076, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
@@ -2782,12 +2787,12 @@ PrefabInstance:
     - target: {fileID: 8259534740768038076, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8259534740768038076, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2366924573998396314, guid: 4eb1c1bfd41cdc24c90e7115060c99c6,
         type: 3}
@@ -3122,7 +3127,7 @@ PrefabInstance:
     - target: {fileID: 8417928251234736393, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7539550700289684889, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
@@ -3209,15 +3214,15 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.6316387
       objectReference: {fileID: 0}
-    - target: {fileID: 1124185353895251514, guid: a4956f728d4cbc7478ff41c305a1d51f,
-        type: 3}
-      propertyPath: m_Name
-      value: M_Platform_Bot
-      objectReference: {fileID: 0}
     - target: {fileID: 6708468289870247474, guid: a4956f728d4cbc7478ff41c305a1d51f,
         type: 3}
       propertyPath: m_Icon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124185353895251514, guid: a4956f728d4cbc7478ff41c305a1d51f,
+        type: 3}
+      propertyPath: m_Name
+      value: M_Platform_Bot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4956f728d4cbc7478ff41c305a1d51f, type: 3}
@@ -3301,7 +3306,22 @@ PrefabInstance:
     - target: {fileID: 1932007530748882593, guid: 1bcf7fcb19c400440b0df29a7c36e179,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.6699982
+      value: 1.6699829
+      objectReference: {fileID: 0}
+    - target: {fileID: 8450795788260280010, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414021216323023007, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918519794417477237, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bcf7fcb19c400440b0df29a7c36e179, type: 3}
@@ -3332,6 +3352,12 @@ GameObject:
 --- !u!1 &3033135907341763404 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2024473390, guid: 1bcf7fcb19c400440b0df29a7c36e179,
+    type: 3}
+  m_PrefabInstance: {fileID: 3033135907341763399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3033135907341763405 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7706007593455283979, guid: 1bcf7fcb19c400440b0df29a7c36e179,
     type: 3}
   m_PrefabInstance: {fileID: 3033135907341763399}
   m_PrefabAsset: {fileID: 0}

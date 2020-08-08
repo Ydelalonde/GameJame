@@ -248,7 +248,7 @@ MonoBehaviour:
   SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
   sound: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
   toHigh: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
-  prefabParticleSystem: {fileID: 4804194889569399836, guid: 22d053ca0d44b804784106569d2e66b7,
+  prefabParticleSystem: {fileID: 4804194889569399836, guid: 962b21c2f77f8e3458fd7af5d9942222,
     type: 3}
 --- !u!114 &6178824312167001717
 MonoBehaviour:
@@ -448,7 +448,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
   SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
   sound: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
   toHigh: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
-  prefabParticleSystem: {fileID: 4804194889569399836, guid: 22d053ca0d44b804784106569d2e66b7,
+  prefabParticleSystem: {fileID: 4804194889569399836, guid: 962b21c2f77f8e3458fd7af5d9942222,
     type: 3}
 --- !u!114 &6461278175963475823
 MonoBehaviour:
@@ -765,7 +765,7 @@ MonoBehaviour:
   SFX_Destruction: {fileID: 8300000, guid: 0198d75ce622a0945b63793b2be3d149, type: 3}
   sound: {fileID: -36929542925799235, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
   toHigh: {fileID: -5143137543271209387, guid: 76a88c46080fa264f8a5e6037143d019, type: 2}
-  prefabParticleSystem: {fileID: 4804194889569399836, guid: 22d053ca0d44b804784106569d2e66b7,
+  prefabParticleSystem: {fileID: 4804194889569399836, guid: 962b21c2f77f8e3458fd7af5d9942222,
     type: 3}
 --- !u!114 &1960320656020805476
 MonoBehaviour:
@@ -1523,7 +1523,7 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabParticleSystem
       value: 
-      objectReference: {fileID: 4804194889569399836, guid: 22d053ca0d44b804784106569d2e66b7,
+      objectReference: {fileID: 4804194889569399836, guid: 962b21c2f77f8e3458fd7af5d9942222,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d789703a3349db94fb73cdbe45d97d25, type: 3}
@@ -1549,7 +1549,7 @@ PrefabInstance:
     - target: {fileID: 4804194889569399836, guid: 51e4ee271c807ab4188ec8dc746049b4,
         type: 3}
       propertyPath: m_Name
-      value: "P_FireBallFum\xE9e (1)"
+      value: "P_FireBallFum\xE9e"
       objectReference: {fileID: 0}
     - target: {fileID: 7510589231327925655, guid: 51e4ee271c807ab4188ec8dc746049b4,
         type: 3}
@@ -1719,7 +1719,7 @@ PrefabInstance:
     - target: {fileID: 4804194889569399836, guid: 51e4ee271c807ab4188ec8dc746049b4,
         type: 3}
       propertyPath: m_Name
-      value: "P_FireBallFum\xE9e (2)"
+      value: "P_FireBallFum\xE9e"
       objectReference: {fileID: 0}
     - target: {fileID: 7510589231327925655, guid: 51e4ee271c807ab4188ec8dc746049b4,
         type: 3}
